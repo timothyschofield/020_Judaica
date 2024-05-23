@@ -4,6 +4,7 @@ File : main_judaica.py
 Author: Tim Schofield
 Date: 23 May 2024
 
+git remote add origin https://github.com/timothyschofield/020_Judaica.git
 """
 import openai
 from openai import OpenAI
@@ -14,7 +15,7 @@ from helper_functions_judaica import encode_image, get_file_timestamp, is_json, 
 import base64
 import requests
 import os
-from pathlib import Path
+from pathlib import Path 
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
