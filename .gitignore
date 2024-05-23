@@ -1,0 +1,6 @@
+﻿back/
+__pycache__/
+input_gpt/
+output_gpt/
+db.py
+judaica_urls_batch1.py
