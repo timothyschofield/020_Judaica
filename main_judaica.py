@@ -4,7 +4,6 @@ File : main_judaica.py
 Author: Tim Schofield
 Date: 23 May 2024
 
-
 """
 import openai
 from openai import OpenAI
@@ -42,7 +41,7 @@ project_name = "Judaica"
 
 source_type = "url" # url or offline
 if source_type == "url":
-  image_path_list = URL_PATH_LIST[30:31]
+  image_path_list = URL_PATH_LIST[32:33]
 else:
   image_folder = Path("input_gpt/")
   image_path_list = list(image_folder.glob("*.jpg"))
@@ -74,7 +73,6 @@ try:
         "model": MODEL,
         "logprobs": False,
 
-         
         "messages": [
           {
             "role": "user",

@@ -45,10 +45,14 @@ try:
         }  
     ]
 
-    # messages=[{"role": "user", "content": "Say this is a test"}]
+   # messages=[{"role": "user", "content": "Say this is a test"}]
 
-    ocr_output = client.chat.completions.create(model=model, messages=messages, stream=True, max_tokens=500)
+    ocr_output = client.chat.completions.create(model=model, messages=messages, stream=True, max_tokens=4096) # max_tokens is too large: 6000.
     
+    #print(list(ocr_output))
+    print("==============================================")
+    
+    # Each chunk returned is a token - but it does NOT get around the max_tokens limit prompt + return  <= MAX_TOKENS == CONTEXT LENGHT
     output_list = []
     for chunk in ocr_output:
         # print(chunk)
