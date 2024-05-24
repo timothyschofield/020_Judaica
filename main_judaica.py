@@ -42,7 +42,7 @@ project_name = "Judaica"
 
 source_type = "url" # url or offline
 if source_type == "url":
-  image_path_list = URL_PATH_LIST[30:40]
+  image_path_list = URL_PATH_LIST[30:31]
 else:
   image_folder = Path("input_gpt/")
   image_path_list = list(image_folder.glob("*.jpg"))
@@ -82,7 +82,6 @@ try:
               {
                 "type": "text",
                 "temperature": 0.2,
-                "stream": True,
                 "text": prompt
               },
               {
