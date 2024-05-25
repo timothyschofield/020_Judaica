@@ -4,9 +4,7 @@ char_complete_experiment.py
 Tim Schofield
 08 November 2023
     
-OpenAI API Experiments
-
-Given an image URL it OCRs it
+Intersting but no cigar
 
 """
 import os

@@ -33,6 +33,7 @@ MODEL = "gpt-4o"                    # max_tokens 4096
 
 prompt = (
         f"Please OCR this document and make an ALTO XML file from the text."
+        f"Go through the XML and replace 'String CONTENT' with 'SC*"
         f"Return only the XML, make no comments."
 )
 
@@ -49,9 +50,14 @@ else:
 print(f"Number to process:{len(image_path_list)}")
 
 print("####################################### START OUTPUT ######################################")
+
+image_path = "https://lrfhec.maxcommunications.co.uk/LRF/JUDAICA/IMAGES/uni-ucl-heb-0015052/uni-ucl-heb-0015052-001/uni-ucl-heb-0015052-001-0033L.jpg"
+
 try:
   
-  for image_path in image_path_list:
+  #for image_path in image_path_list:
+  for i in range(1):
+ 
  
     print(f"\n### {image_path} ###\n")
     count+=1
@@ -95,6 +101,20 @@ try:
     } 
 
     ocr_output = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
+    print("====================================================")
+    ocr_json = ocr_output.model_dump_json()            # a string in json format
+    print(ocr_json)
+    print("====================================================")
+    ocr_json = ocr_json.replace("null", '"none"')       # a string in json format with no nulls
+    print(ocr_json)
+    print("====================================================")
+    ocr_dict = eval(ocr_json)                           # convert from a string in json format to a Python dict
+    print(ocr_dict)
+    print("====================================================")
+    finish_reason = ocr_dict["choices"][0]["finish_reason"]
+    print(finish_reason)
+    
+    
     response_code = ocr_output.status_code
     print(f"ocr_output response_code:{response_code}")
     print(f"{str(ocr_output.json())}")

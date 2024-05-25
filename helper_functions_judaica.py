@@ -40,14 +40,6 @@ def get_torch_cuda_info():
       print('__CUDA Device Total Memory [GB]:',torch.cuda.get_device_properties(0).total_memory/1e9)
       print("-----------------------")
 
-  # Setup device agnostic code
-  if torch.cuda.is_available():
-      device = "cuda"
-  else:
-      device = "cpu"
-  print(f"device: {device}")  
-      
-
 import pandas as pd
 from pathlib import Path
 def create_and_save_dataframe(output_list, key_list_with_logging, output_path_name):
