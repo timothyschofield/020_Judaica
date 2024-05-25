@@ -23,6 +23,7 @@ try:
     prompt = "Please read this text and return everything you can. Just return what you see, do not make comments"
     
     url = "https://d2seqvvyy3b8p2.cloudfront.net/2ca62a26221a397d6942874b6ee7a225.jpg"
+    
     url = "https://lrfhec.maxcommunications.co.uk/LRF/JUDAICA/IMAGES/uni-ucl-heb-0015052/uni-ucl-heb-0015052-001/uni-ucl-heb-0015052-001-0033L.jpg"
     print("========================== START OUTPUT =============================")
 
@@ -55,7 +56,7 @@ try:
     ocr_json = ocr_json.replace("null", '"none"')       # a string in json format with no nulls
     #print(ocr_json)
     #print("====================================================")
-    ocr_dict = eval(ocr_json)                           # convert from a string in json format to a Python dict
+    ocr_dict = json.loads(ocr_json)                           # convert from a string in json format to a Python dict
     #print(ocr_dict)
     print("====================================================")
     finish_reason = ocr_dict["choices"][0]["finish_reason"]

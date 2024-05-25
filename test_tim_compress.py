@@ -23,9 +23,9 @@ client = OpenAI(api_key=my_api_key)   # openai version 1.2.3
 try:
 
     prompt = (
-        f"OCR this document and make an ALTO XML file from the text."
+        f"OCR this document and make ALTO XML."
         f"Go through the XML and replace 'String CONTENT' with '<S', 'TextLine>' with 'T>', delete all '\n'"
-        f"Return only the XML, make no comments."
+        f"Return only the XML."
 )
     
     # problems   f"Go through the XML and replace '\n' by ' '"
@@ -34,8 +34,6 @@ try:
         f"OCR this document and make ALTO XML."
         f"Return only XML"
 ) 
-    
-    
     
     url = "https://lrfhec.maxcommunications.co.uk/LRF/JUDAICA/IMAGES/uni-ucl-heb-0015052/uni-ucl-heb-0015052-001/uni-ucl-heb-0015052-001-0033BIG.jpg"
     
@@ -64,18 +62,18 @@ try:
         ocr_output = client.chat.completions.create(model=model, messages=messages, max_tokens=4096) # max_tokens is too large: 6000.
         print(f"****{ocr_output}****")
         #print("====================================================")
-        ocr_json = ocr_output.model_dump_json()            # a string in json format
-        #print(ocr_json)
-        #print("====================================================")
+        ocr_json = ocr_output.model_dump_json()             # a string in json format
+        print(f"{ocr_json=}")
+        print("====================================================")
         ocr_json = ocr_json.replace("null", '"none"')       # a string in json format with no nulls
-        #print(ocr_json)
-        #print("====================================================")
-        ocr_dict = eval(ocr_json)                           # convert from a string in json format to a Python dict
-        #print(ocr_dict)
-        #print("====================================================")
+        print(f"{ocr_json=}")
+        print("====================================================")
+        ocr_dict = json.loads(ocr_json)                     # convert from a string in json format to a Python dict
+        print(f"{ocr_dict=}")
+        print("====================================================")
         finish_reason = ocr_dict["choices"][0]["finish_reason"]
-        total_tokens = ocr_dict["usage"]["total_tokens"]
-        print(f"{finish_reason} {total_tokens}")
+        usage = ocr_dict["usage"]
+        print(f"{finish_reason=} {usage=}")
     print("========================== STOP OUTPUT =============================")
 
 except Exception as ex:

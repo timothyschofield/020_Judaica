@@ -20,6 +20,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import time
 from datetime import datetime
+import json
 
 try:
   my_api_key = OPENAI_API_KEY          
@@ -35,6 +36,10 @@ prompt = (
         f"Please OCR this document and make an ALTO XML file from the text."
         f"Go through the XML and replace 'String CONTENT' with 'SC*"
         f"Return only the XML, make no comments."
+)
+
+prompt = (
+        f"Please OCR this document and extract the text."
 )
 
 count = 0
@@ -53,89 +58,78 @@ print("####################################### START OUTPUT ####################
 
 image_path = "https://lrfhec.maxcommunications.co.uk/LRF/JUDAICA/IMAGES/uni-ucl-heb-0015052/uni-ucl-heb-0015052-001/uni-ucl-heb-0015052-001-0033L.jpg"
 
+image_path = "https://d2seqvvyy3b8p2.cloudfront.net/2ca62a26221a397d6942874b6ee7a225.jpg"
+
 try:
   
   #for image_path in image_path_list:
+  
   for i in range(1):
- 
  
     print(f"\n### {image_path} ###\n")
     count+=1
     print(f"count: {count}")
 
+    # "url" or "local"
     if source_type == "url":
       url_request = image_path
     else:
       base64_image = encode_image(image_path)
       url_request = f"data:image/jpeg;base64,{base64_image}"
 
-    headers = {
-        "Content-Type": "application/json",
-        "Authorization": f"Bearer {my_api_key}"
-    }
-    
-    # payload is in JSON format
-    payload = {
-        "model": MODEL,
-        "logprobs": False,
 
-        "messages": [
-          {
+    messages=[
+        {
             "role": "user",
+            "logprobs": False,
             "content": [
-              {
-                "type": "text",
-                "temperature": 0.2,
-                "text": prompt
-              },
-              {
-                "type": "image_url",
-                "image_url": {
-                  "url": url_request
+                {
+                    "type": "text",
+                    "temperature": 0.2,
+                    "text": prompt
+                },
+                {
+                    "type": "image_url",
+                    "image_url":  {"url": url_request}
                 }
-              }
             ]
-          }
-        ],
-        "max_tokens": 4096   # 4096 is the  max_tokens that can be returned in gpt-4o
-    } 
+        }  
+    ]
 
-    ocr_output = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
+    ocr_output = client.chat.completions.create(model=MODEL, messages=messages, max_tokens=4096)
     print("====================================================")
-    ocr_json = ocr_output.model_dump_json()            # a string in json format
-    print(ocr_json)
-    print("====================================================")
+    print(ocr_output)
+    ocr_json = ocr_output.model_dump_json()             # a string in json format
+    print("========================")
     ocr_json = ocr_json.replace("null", '"none"')       # a string in json format with no nulls
-    print(ocr_json)
-    print("====================================================")
-    ocr_dict = eval(ocr_json)                           # convert from a string in json format to a Python dict
+    ocr_dict = json.loads(ocr_json)                     # convert from a string in json format to a Python dict
     print(ocr_dict)
     print("====================================================")
     finish_reason = ocr_dict["choices"][0]["finish_reason"]
-    print(finish_reason)
+    usage = ocr_dict["usage"]
+    print(f"{finish_reason=} {usage=}")
+    print("====================================================")   
     
-    
-    response_code = ocr_output.status_code
-    print(f"ocr_output response_code:{response_code}")
-    print(f"{str(ocr_output.json())}")
-
+    # How to handle
+    #response_code = ocr_output.status_code
+    #print(f"ocr_output response_code:{response_code}")
 
   #################################### eo for loop
 
 
 except openai.APIError as e:
   #Handle API error here, e.g. retry or log
-  print(f"OpenAI API returned an API Error: {e}")
+  print(f"TIM: OpenAI API returned an API Error: {e}")
   pass
 
 except openai.APIConnectionError as e:
   #Handle connection error here
-  print(f"Failed to connect to OpenAI API: {e}")
+  print(f"TIM: Failed to connect to OpenAI API: {e}")
   pass
 
 except openai.RateLimitError as e:
   #Handle rate limit error (we recommend using exponential backoff)
-  print(f"OpenAI API request exceeded rate limit: {e}")
+  print(f"TIM: OpenAI API request exceeded rate limit: {e}")
   pass
 
 print("####################################### END OUTPUT ######################################")
