@@ -44,7 +44,10 @@ import pandas as pd
 from pathlib import Path
 def create_and_save_dataframe(output_list, key_list_with_logging, output_path_name):
   output_df = pd.DataFrame(output_list)
-  output_df = output_df[key_list_with_logging]  # Bring reorder dataframe to bring source url and error column to the front
+
+  if key_list_with_logging != []:
+    output_df = output_df[key_list_with_logging]  # Bring reorder dataframe to bring source url and error column to the front
+
   output_path = Path(output_path_name)
   with open(output_path, "w") as f:
     output_df.to_csv(f, index=False)

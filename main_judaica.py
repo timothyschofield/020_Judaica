@@ -33,38 +33,55 @@ except Exception as ex:
 MODEL = "gpt-4o"                    # max_tokens 4096
 
 prompt = (
-        f"Please OCR this document and make an ALTO XML file from the text."
+        f"Please OCR this document and make an ALTO XML file from the text"
         f"Go through the XML and replace 'String CONTENT' with 'SC*"
-        f"Return only the XML, make no comments."
+        f"Return only the XML, make no comments"
 )
 
 prompt = (
-        f"Please OCR this document and extract the text."
+        f"Please OCR this document and extract the text and make into ALTO XML"
+        f"The text is in old German and Hebrew"
+        f"String tags should always contain CONTENT, HEIGHT, WIDTH, HPOS and VPOS attributes"
+        f"Please return only the text, no not make comments"
+        f"Do not wrap the returned text with backticks."    # it does it anyway sometimes
 )
+
+prompt = (
+        f"Please OCR this document and extract the text"
+        f"The script is in Hebrew"
+)
+
 
 count = 0
 project_name = "Judaica"
 
-source_type = "url" # url or offline
+source_type = "local" # url or local
 if source_type == "url":
   image_path_list = URL_PATH_LIST[32:33]
 else:
   image_folder = Path("input_gpt/")
   image_path_list = list(image_folder.glob("*.jpg"))
 
+
 print(f"Number to process:{len(image_path_list)}")
 
-print("####################################### START OUTPUT ######################################")
 
+""""
 image_path = "https://lrfhec.maxcommunications.co.uk/LRF/JUDAICA/IMAGES/uni-ucl-heb-0015052/uni-ucl-heb-0015052-001/uni-ucl-heb-0015052-001-0033L.jpg"
-
 image_path = "https://d2seqvvyy3b8p2.cloudfront.net/2ca62a26221a397d6942874b6ee7a225.jpg"
+# Half page old german
+image_path = "https://lrfhec.maxcommunications.co.uk/LRF/JUDAICA/IMAGES/uni-ucl-heb-0015052/uni-ucl-heb-0015052-001/uni-ucl-heb-0015052-001-0011L.jpg"
+image_path = "input_gpt/uni-ucl-heb-0015052-001-0011L.jpg"
+image_path = "input_gpt/Lot of Hebrew uni-ucl-heb-0015091-001-0019L.jpg"
+image_path = "input_gpt/genesis-930x520.jpg"
+"""
 
+output_list = []
+print("####################################### START OUTPUT ######################################")
 try:
   
-  #for image_path in image_path_list:
-  
-  for i in range(1):
+  for image_path in image_path_list:
+  # for i in range(3):
  
     print(f"\n### {image_path} ###\n")
     count+=1
@@ -76,7 +93,6 @@ try:
     else:
       base64_image = encode_image(image_path)
       url_request = f"data:image/jpeg;base64,{base64_image}"
-
 
     messages=[
         {
@@ -97,6 +113,7 @@ try:
     ]
 
     ocr_output = client.chat.completions.create(model=MODEL, messages=messages, max_tokens=4096)
+    
     print("====================================================")
     print(ocr_output)
     ocr_json = ocr_output.model_dump_json()             # a string in json format
@@ -108,14 +125,28 @@ try:
     finish_reason = ocr_dict["choices"][0]["finish_reason"]
     usage = ocr_dict["usage"]
     print(f"{finish_reason=} {usage=}")
-    print("====================================================")   
+    print("====================================================")
+    
+    dict_returned = dict()
+    dict_returned["source"] = str(image_path)
+    dict_returned["ocr content"] = f'==== START ================ uni-ucl-heb-0015052-001-0011L ===============================\n{ocr_dict["choices"][0]["message"]["content"]}'
+    dict_returned["finish_reason"] = finish_reason
+    dict_returned["usage"] = usage
+    
+    output_list.append(dict_returned)
     
     # How to handle
     #response_code = ocr_output.status_code
     #print(f"ocr_output response_code:{response_code}")
 
   #################################### eo for loop
+  
+  time_stamp = get_file_timestamp()
+  output_path_name = f"output_gpt/{project_name}_{time_stamp}-{count}.csv"
+  
+  create_and_save_dataframe(output_list, key_list_with_logging=[], output_path_name=output_path_name)
 
+  print("####################################### END OUTPUT ######################################")
 
 except openai.APIError as e:
   #Handle API error here, e.g. retry or log
@@ -132,7 +163,6 @@ except openai.RateLimitError as e:
   print(f"TIM: OpenAI API request exceeded rate limit: {e}")
   pass
 
-print("####################################### END OUTPUT ######################################")
 
 
 
