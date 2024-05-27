@@ -53,6 +53,29 @@ def create_and_save_dataframe(output_list, key_list_with_logging, output_path_na
     output_df.to_csv(f, index=False)
     
     
-    
-    
+def make_payload(model, prompt, url_request, num_tokens):
+  
+  payload = {
+    "model": model,
+    "logprobs": False,
+    "messages": [
+      {
+        "role": "user",
+        "content": [
+          {
+            "type": "text",
+            "temperature": "0.2",
+            "text": prompt
+          },
+          {
+            "type": "image_url",
+            "image_url": {"url": url_request}
+          }
+        ]
+      }
+    ],
+    "max_tokens": num_tokens
+  } 
+  
+  return payload
     

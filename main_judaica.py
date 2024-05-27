@@ -50,7 +50,7 @@ prompt = (
         f"Please OCR this document and extract the text"
         f"The script is in Hebrew"
 )
-
+#### OLD
 
 count = 0
 project_name = "Judaica"

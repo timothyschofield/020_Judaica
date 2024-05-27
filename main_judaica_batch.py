@@ -8,8 +8,8 @@ Date: 23 May 2024
 import openai
 from openai import OpenAI
 from db import OPENAI_API_KEY
-from peru_url_list import URL_PATH_LIST
-from helper_functions_judaica import encode_image, get_file_timestamp, is_json, create_and_save_dataframe
+from judaica_urls_batch1 import URL_PATH_LIST
+from helper_functions_judaica import encode_image, get_file_timestamp, is_json, create_and_save_dataframe, make_payload
 import base64
 import requests
 import os
@@ -31,32 +31,40 @@ except Exception as ex:
 MODEL = "gpt-4o"   # max_tokens 4096
 
 prompt = (
+        f"Please OCR this document and extract the text"
+        f"Please return only the text, no not make comments"
+        f"Do not wrap the returned text with backticks."  
+)
+
+prompt = (
         f"Please OCR this document and make an ALTO XML file from the text"
         f"Go through the XML and replace 'String CONTENT' with 'SC*"
         f"Return only the XML, make no comments"
 )
 
 prompt = (
-        f"Please OCR this document and extract the text and make into ALTO XML"
+        f" OLD  Please OCR this document and extract the text and make into ALTO XML"
         f"The text is in old German and Hebrew"
         f"String tags should always contain CONTENT, HEIGHT, WIDTH, HPOS and VPOS attributes"
         f"Please return only the text, no not make comments"
-        f"Do not wrap the returned text with backticks."    # it does it anyway sometimes
+        f"Do not wrap the returned text with backticks."   
 )
 
 prompt = (
-        f"Please OCR this document and extract the text"
+        f"Please OCR this document and extract the text and make into ALTO XML"
+        f"The text is in a mixture of old German, Latin and Hebrew"
+        f"For String tags only include the CONTENT attribute"
         f"Please return only the text, no not make comments"
-        f"Do not wrap the returned text with backticks."  
+        f"Do not wrap the returned text with backticks."   
 )
 
-
+#  f"A CONTENT attribute should only contain one word"
 count = 0
 project_name = "Judaica"
 source_type = "url" # url or local
 
 if source_type == "url":
-  image_path_list = URL_PATH_LIST[:3]
+  image_path_list = URL_PATH_LIST[0:]
 else:
   image_folder = Path("input_gpt/")
   image_path_list = list(image_folder.glob("*.jpg"))
@@ -67,6 +75,9 @@ headers = {
   "Content-Type": "application/json",
   "Authorization": f"Bearer {my_api_key}"
 }
+
+batch_size = 20 # saves every batch_size
+time_stamp = get_file_timestamp()
 
 # image_path_list = ["https://d2seqvvyy3b8p2.cloudfront.net/2ca62a26221a397d6942874b6ee7a225.jpg"]
 print("####################################### START OUTPUT ######################################")
@@ -87,28 +98,9 @@ try:
       base64_image = encode_image(image_path)
       url_request = f"data:image/jpeg;base64,{base64_image}"
       
-    payload = {
-        "model": MODEL,
-        "logprobs": False,
-        "messages": [
-          {
-            "role": "user",
-            "content": [
-              {
-                "type": "text",
-                "temperature": "0.2",
-                "text": prompt
-              },
-              {
-                "type": "image_url",
-                "image_url": {"url": url_request}
-              }
-            ]
-          }
-        ],
-        "max_tokens": 4096
-    } 
+    payload = make_payload(MODEL, prompt, url_request, 4096)
     
+
     num_tries = 3
     for i in range(num_tries):
       ocr_output = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
@@ -155,12 +147,18 @@ try:
     
     output_list.append(dict_returned)
     
+    if count % batch_size == 0:
+      print(f"WRITING BATCH:{count}")  
+      output_path_name = f"output_gpt/{project_name}_{time_stamp}-{count}.csv"
+      create_and_save_dataframe(output_list=output_list, key_list_with_logging=[], output_path_name=output_path_name)
+    
+    
   #################################### eo for loop
 
-  time_stamp = get_file_timestamp()
+  print(f"WRITING BATCH:{count}")  
   output_path_name = f"output_gpt/{project_name}_{time_stamp}-{count}.csv"
-
-  create_and_save_dataframe(output_list, key_list_with_logging=[], output_path_name=output_path_name)
+  create_and_save_dataframe(output_list=output_list, key_list_with_logging=[], output_path_name=output_path_name)
+ 
 
   print("####################################### END OUTPUT ######################################")
 
