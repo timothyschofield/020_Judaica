@@ -3,5 +3,6 @@ __pycache__/
 input_gpt/
 output_gpt/
 output_gpt_experiments/
+_00_Judaica_Notes/
 db.py
 judaica_urls_batch1.py

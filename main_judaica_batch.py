@@ -8,7 +8,10 @@ Date: 23 May 2024
 import openai
 from openai import OpenAI
 from db import OPENAI_API_KEY
-from judaica_urls_batch1 import URL_PATH_LIST
+
+# from judaica_urls_batch1 import URL_PATH_LIST
+from many_word_on_line_urls import URL_PATH_LIST
+
 from helper_functions_judaica import encode_image, get_file_timestamp, is_json, create_and_save_dataframe, make_payload
 import base64
 import requests
@@ -43,7 +46,7 @@ prompt = (
 )
 
 prompt = (
-        f" OLD  Please OCR this document and extract the text and make into ALTO XML"
+        f"Please OCR this document and extract the text and make into ALTO XML"
         f"The text is in old German and Hebrew"
         f"String tags should always contain CONTENT, HEIGHT, WIDTH, HPOS and VPOS attributes"
         f"Please return only the text, no not make comments"
@@ -51,20 +54,38 @@ prompt = (
 )
 
 prompt = (
-        f"Please OCR this document and extract the text and make into ALTO XML"
-        f"The text is in a mixture of old German, Latin and Hebrew"
-        f"For String tags only include the CONTENT attribute"
-        f"Please return only the text, no not make comments"
-        f"Do not wrap the returned text with backticks."   
+        f"OCR this document and extract the text and make into ALTO XML"
+        f"The text is in a mixture of Gothic German, Latin and Hebrew"
+        f"For String tags only include the CONTENT attribute"     
+        f"A CONTENT attribute must only contain one word"                   # dumping word and Hebrew
+        f"If you can find no text return '<alto> <!-- No text --> </alto>'"
+        f"Return only the text do not make comments"
+        f"Do not wrap the returned text with backticks"   
 )
 
-#  f"A CONTENT attribute should only contain one word"
+prompt = (
+        f"OCR this document and extract the text and make into ALTO XML"
+        f"The text is in a mixture of Gothic German, Latin and Hebrew"
+        f"For String tags only include the CONTENT attribute"  
+           
+        f"Words in a line should be contained within a TextLine tag"
+        f"Each word in a TextLine should be contained within a seperate String tag"
+          
+        f"If you can find no text return '<alto> <!-- No text --> </alto>'"
+        f"Return only the text do not make comments"
+        f"Do not wrap the returned text with backticks"   
+)
+
 count = 0
 project_name = "Judaica"
 source_type = "url" # url or local
+batch_size = 20 # saves every batch_size
+time_stamp = get_file_timestamp()
+experiment = "many_words_in_lines"
+
 
 if source_type == "url":
-  image_path_list = URL_PATH_LIST[0:]
+  image_path_list = URL_PATH_LIST
 else:
   image_folder = Path("input_gpt/")
   image_path_list = list(image_folder.glob("*.jpg"))
@@ -76,10 +97,9 @@ headers = {
   "Authorization": f"Bearer {my_api_key}"
 }
 
-batch_size = 20 # saves every batch_size
-time_stamp = get_file_timestamp()
 
-# image_path_list = ["https://d2seqvvyy3b8p2.cloudfront.net/2ca62a26221a397d6942874b6ee7a225.jpg"]
+
+#image_path_list = ["https://lrfhec.maxcommunications.co.uk/LRF/JUDAICA/IMAGES/uni-ucl-heb-0015052/uni-ucl-heb-0015052-001/uni-ucl-heb-0015052-001-0004R.jpg"]
 print("####################################### START OUTPUT ######################################")
 try:
   
@@ -87,7 +107,7 @@ try:
 
     error_message = "OK"
 
-    print(f"\n### {image_path} ###\n")
+    print(f"\n### {image_path} ###")
     count+=1
     print(f"count: {count}")
 
@@ -100,7 +120,6 @@ try:
       
     payload = make_payload(MODEL, prompt, url_request, 4096)
     
-
     num_tries = 3
     for i in range(num_tries):
       ocr_output = requests.post("https://api.openai.com/v1/chat/completions", headers=headers, json=payload)
@@ -114,8 +133,10 @@ try:
     
     ocr_dict = ocr_output.json()  # Turns JSON string into Python dict
     
+    
     # If it refused to return 200 num_tries tries then report the error and move on
     if response_code != 200:
+      # ERROR 200 not returned
       error_message = f"ERROR {response_code}"
       
       dict_returned = dict()
@@ -129,14 +150,16 @@ try:
       print(f"======= 200 not returned. MOVE ON ==================")
       print("=====================================================")
     else:
-      print("=====================================================")
+      # OK 200 returned
+
       print(f"{response_code=}")
       print(ocr_dict)
-      print("=====================================================")
-  
       finish_reason = ocr_dict["choices"][0]["finish_reason"]
       usage = ocr_dict["usage"]
       print(f"{finish_reason=} {usage=}")
+      print("=====================================================")
+      
+      # Check the last characters are "</alto>"
       
       dict_returned = dict()
       dict_returned["source"] = str(image_path)
@@ -149,14 +172,13 @@ try:
     
     if count % batch_size == 0:
       print(f"WRITING BATCH:{count}")  
-      output_path_name = f"output_gpt/{project_name}_{time_stamp}-{count}.csv"
+      output_path_name = f"output_gpt/{project_name}_{time_stamp}_{experiment}_{count}.csv"
       create_and_save_dataframe(output_list=output_list, key_list_with_logging=[], output_path_name=output_path_name)
-    
     
   #################################### eo for loop
 
   print(f"WRITING BATCH:{count}")  
-  output_path_name = f"output_gpt/{project_name}_{time_stamp}-{count}.csv"
+  output_path_name = f"output_gpt/{project_name}_{time_stamp}_{experiment}_{count}.csv"
   create_and_save_dataframe(output_list=output_list, key_list_with_logging=[], output_path_name=output_path_name)
  
 
