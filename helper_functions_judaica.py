@@ -1,4 +1,14 @@
 
+
+import xml.etree.ElementTree as ET
+def validate_xml(xml_text):
+    try:
+        ET.fromstring(xml_text)
+        return True, "The XML is well-formed."
+    except ET.ParseError as e:
+        return False, f"XML is not well-formed: {e}"
+
+
 import base64
 # Function to base64 encode an image
 def encode_image(image_path):

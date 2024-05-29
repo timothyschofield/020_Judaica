@@ -22,7 +22,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import os
-from urllib.parse import urlparse
+import xml.etree.ElementTree as ET
+from helper_functions_judaica import validate_xml
 
 """
 Required file hierachy
@@ -60,15 +61,38 @@ for index, row in df.iterrows():
     section_name =  url_list[-3]
     # print(f"{section_name=}\n{item_name=}\n{filename=}\n")
     
-    folder_path = Path(f"{dest_folder}/{section_name}/{item_name}")
-    file_path = Path(f"{folder_path}/{filename}.xml")
-    print(f"{file_path}")
- 
-    folder_path.mkdir(parents = True, exist_ok = True)
+    
+    all_xml_path = Path(f"{dest_folder}/all_xml/{section_name}/{item_name}")
+    valid_xml_path = Path(f"{dest_folder}/valid_xml/{section_name}/{item_name}")
+    invalid_xml_path = Path(f"{dest_folder}/invalid_xml/{section_name}/{item_name}")
+    
+    all_xml_path.mkdir(parents = True, exist_ok = True)
+    valid_xml_path.mkdir(parents = True, exist_ok = True)
+    invalid_xml_path.mkdir(parents = True, exist_ok = True)
+    
+    # write everything whether valid or not to all_xml
+    file_path_all = Path(f"{all_xml_path}/{filename}.xml")
+    file_path_valid = Path(f"{valid_xml_path}/{filename}.xml")
+    file_path_invalid = Path(f"{invalid_xml_path}/{filename}.xml") 
+    #print(f"{file_path_all}")
     
     ocr_output = row["ocr content"]
-    with open(file_path, 'a') as the_file:
+    
+    with open(file_path_all, 'a') as the_file:
         the_file.write(ocr_output)
+        
+    is_valid, message = validate_xml(ocr_output)
+    if is_valid:
+        with open(file_path_valid, 'a') as the_file:
+            the_file.write(ocr_output)
+    else:
+         with open(file_path_invalid, 'a') as the_file:
+            the_file.write(ocr_output)       
+    
+    
+    
+        
+
 
 
 
