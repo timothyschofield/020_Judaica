@@ -9,8 +9,10 @@ import openai
 from openai import OpenAI
 from db import OPENAI_API_KEY
 
-# from judaica_urls_batch1 import URL_PATH_LIST
-from many_word_on_line_urls import URL_PATH_LIST
+
+# from many_word_on_line_urls import URL_PATH_LIST
+# from generates_invalid_xml import URL_PATH_LIST
+from judaica_urls_batch1 import URL_PATH_LIST
 
 from helper_functions_judaica import encode_image, get_file_timestamp, is_json, create_and_save_dataframe, make_payload
 import base64
@@ -73,7 +75,7 @@ prompt = (
           
         f"If you can find no text return '<alto> <!-- No text --> </alto>'"
         f"Return only the text do not make comments"
-        f"Do not wrap the returned text with backticks"   
+        f"Do not wrap the returned text with backticks"
 )
 
 count = 0
@@ -81,7 +83,7 @@ project_name = "Judaica"
 source_type = "url" # url or local
 batch_size = 20 # saves every batch_size
 time_stamp = get_file_timestamp()
-experiment = "many_words_in_lines"
+experiment = "full"
 
 
 if source_type == "url":
@@ -132,6 +134,7 @@ try:
     ###### eo try requests three times
     
     ocr_dict = ocr_output.json()  # Turns JSON string into Python dict
+
     
     
     # If it refused to return 200 num_tries tries then report the error and move on
@@ -142,6 +145,7 @@ try:
       dict_returned = dict()
       dict_returned["source"] = str(image_path)
       dict_returned["error"] = error_message
+      
       dict_returned["ocr content"] = str(ocr_dict)
       dict_returned["finish_reason"] = 'none'
       dict_returned["usage"] = 'none'
