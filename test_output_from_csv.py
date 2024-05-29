@@ -34,7 +34,7 @@ uni-ucl-heb-0015052                             <<<<< call this the section leve
         ...    
 """
 
-FILE_NAME = "TIM METADATA - Proquest UCL - Judaica Batch 1 (C260_0003) - BENCHMARK.csv"
+FILE_NAME = "Judaica_2024-05-27-No_Floats-return-ALTO-001-261.csv"
 csv_folder = Path("input_gpt")
 
 dest_folder = Path("output_xml_folders")
@@ -46,28 +46,29 @@ df = pd.read_csv(csv_folder / FILE_NAME)
 for index, row in df.iterrows():
     
     # https://lrfhec.maxcommunications.co.uk/LRF/JUDAICA/IMAGES/uni-ucl-heb-0015052/uni-ucl-heb-0015052-001/uni-ucl-heb-0015052-001-0001L.jpg
-    url = row["Image url link"]
-   
+    url = row["source"]
+    # print(f"{url}")
+    
     if url == "none": 
         continue
 
-    print(f"{url}")
-    
     url_list = url.split("/")
-    
     # print(f"{url_list}")
     
-    filename = url_list[-1]
+    filename = Path(url_list[-1]).stem  # Get rid of the extension
     item_name = url_list[-2]
     section_name =  url_list[-3]
+    # print(f"{section_name=}\n{item_name=}\n{filename=}\n")
     
-    print(f"{section_name=}\n{item_name=}\n{filename=}\n")
-
+    folder_path = Path(f"{dest_folder}/{section_name}/{item_name}")
+    file_path = Path(f"{folder_path}/{filename}.xml")
+    print(f"{file_path}")
+ 
+    folder_path.mkdir(parents = True, exist_ok = True)
     
-    
-    exit()
-
-
+    ocr_output = row["ocr content"]
+    with open(file_path, 'a') as the_file:
+        the_file.write(ocr_output)
 
 
 

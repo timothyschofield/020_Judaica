@@ -2,7 +2,7 @@
 __pycache__/
 input_gpt/
 output_gpt/
-output_gpt_experiments/
+output_xml_folders/
 _00_Judaica_Notes/
 db.py
 judaica_urls_batch1.py
