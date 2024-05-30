@@ -28,22 +28,31 @@ from helper_functions_judaica import validate_xml, get_file_timestamp
 """
 Required file hierachy
 
-uni-ucl-heb-0015052                             <<<<< call this the section level
+uni-ucl-heb-0015052                             <<<<< call this the book level
+    
+    uni-ucl-heb-0015052-000                     <<<<< this item folder contains all the NISC
     uni-ucl-heb-0015052-001                     <<<<< this is the item level
-        uni-ucl-heb-0015052-001-0001L.xml
-        uni-ucl-heb-0015052-001-0001R.xml   
-        ...    
+        uni-ucl-heb-0015052-001.xml
+        *.jpg
+        *.tiff
+        ocr
+            uni-ucl-heb-0015052-001-0001L.xml
+            uni-ucl-heb-0015052-001-0001R.xml
+            
+        ...   
+        
+One xml metadata file per item
+Each metadata file refers to each of the xml data files in that item AND the files in NISC
 """
 
 # FILE_NAME = "Judaica_2024-05-27-No_Floats-return-ALTO-001-261.csv"
 # FILE_NAME = "Judaica_2024-05-29T15-12-54_generates_invalid_xml_22.csv"
 FILE_NAME = "Judaica_2024-05-29T16-13-23_full_278.csv"
 
-
 csv_folder = Path("input_gpt")
 
-dest_folder = Path("output_xml_folders")
-
+dest_folder = Path(f"output_xml_folders/judaica_xml_{get_file_timestamp()}")
+ 
 df = pd.read_csv(csv_folder / FILE_NAME)
 # print(df) 
 
@@ -61,7 +70,7 @@ for index, row in df.iterrows():
 
     # https://lrfhec.maxcommunications.co.uk/LRF/JUDAICA/IMAGES/uni-ucl-heb-0015052/uni-ucl-heb-0015052-001/uni-ucl-heb-0015052-001-0001L.jpg
     url = row["source"]
-    print(f"****{url}****")
+    #print(f"****{url}****")
     
     if url == "none": 
         continue
@@ -96,15 +105,6 @@ for index, row in df.iterrows():
     ocr_output = ocr_output.replace("```", "")
     
     
-    
-    
-    
-    
-    
-    
-    
-    
-    
     # Do this again after fix-up
     # ocr_output = ocr_output.replace("```xml", "")
     # ocr_output = ocr_output.replace("```", "")
@@ -124,6 +124,7 @@ for index, row in df.iterrows():
         this_invalid = dict()
         this_invalid["filename"] = file_path_invalid
         this_invalid["message"] = message
+        this_invalid["xml"] = ocr_output
         log_invalid.append(this_invalid)
 
 log_df = pd.DataFrame(log_invalid)

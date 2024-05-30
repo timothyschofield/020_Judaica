@@ -4,6 +4,8 @@ test_contination.py
 Tim Schofield
 23 May 2024
     
+    not sure if this works - dead end
+    
 """
 import os
 import time
