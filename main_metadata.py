@@ -73,9 +73,12 @@ df = pd.read_csv(metadata_input)
 metadata_output = Path(f"metadata_output/judaica_xml_{get_file_timestamp()}")
 
 old_item_name = None
+old_item_name_path = None
 old_book_name = None
 item_data = None
 nisc_data = None
+
+first_time_in = True
 
 # There is no all_xml, valid_xml, invalid_xml folders
 # This all assumes all xml is valid - no need to mention
@@ -98,21 +101,16 @@ for index, row in df.iterrows():
     
     # We only need this to check if it is NISC data 000
     item_000 = file_name_list[-2:-1][0]
-    
-    #print(file_name)                 
-    #print(item_name)
-    #print(book_name)
-    #exit()
 
     # Make the folders
     book_name_path = Path(f"{metadata_output}/{book_name}")
     item_name_path = Path(f"{metadata_output}/{book_name}/{item_name}")
-    ocr_path = Path(f"{metadata_output}/{book_name}/{item_name}/ocr")
+    if item_000 != "000":
+        ocr_path = Path(f"{metadata_output}/{book_name}/{item_name}/ocr")
+        ocr_path.mkdir(parents = True, exist_ok = True)
     
     book_name_path.mkdir(parents = True, exist_ok = True)
     item_name_path.mkdir(parents = True, exist_ok = True)
-    ocr_path.mkdir(parents = True, exist_ok = True)
-    
     
     if book_name != old_book_name:
         # We have encountered a new book
@@ -131,31 +129,36 @@ for index, row in df.iterrows():
             if item_name != old_item_name:
                 # We have encountered a new non NISC item
                 
+                # The first time in - before data has been accumulated - you don't want it to write
+                # The second time in you want it to write the data thats been accumulated (the old data) to the old path
                 print(f"New non NISC item {item_name=}\n")
-                print(f"Old item data {item_data=}\n")
-                file_to_write = f"{item_name_path}/{item_name}.xml"
-                print(f"{file_to_write=}")
-                with open(f"{item_name_path}/{item_name}.xml", 'a') as the_file:
-                    the_file.write("hdklhs")
+                if first_time_in != True:
+                    first_time_in = True
+                    print(f"Old item data {item_data=}\n")
+                    file_to_write = f"{old_item_path}/{old_item_name}.xml"
+                    print(f"{file_to_write=}")
+                    with open(file_to_write, 'a') as the_file:
+                        the_file.write(str(item_data))
                 
+                first_time_in = False
                 # So start the new item's data off by inserting the NISC data for that book
                 item_data = []
                 item_data.extend(nisc_data)
      
                 old_item_name = item_name
+                old_item_path = item_name_path
             else:
                 # Not new item OR NISC data
                 item_data.append(file_name)
     
 
-
-  
 print(f"Last Old item data {item_data=}\n") 
-file_to_write = f"{item_name_path}/{item_name}.xml"
+file_to_write = f"{old_item_path}/{old_item_name}.xml"
+
 print(f"{file_to_write=}")
  
-with open(f"{item_name_path}/{item_name}.xml", 'a') as the_file:
-   the_file.write("hdklhs")  
+with open(file_to_write, 'a') as the_file:
+   the_file.write(str(item_data))  
    
    
     
