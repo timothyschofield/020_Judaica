@@ -1,8 +1,8 @@
-﻿back/
-__pycache__/
+﻿__pycache__/
+_00_Judaica_Notes/
+back/
 input_gpt/
 output_gpt/
 output_xml_folders/
-_00_Judaica_Notes/
 db.py
 judaica_urls_batch1.py
