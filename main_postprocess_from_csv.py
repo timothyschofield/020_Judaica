@@ -1,5 +1,5 @@
 """
-File : test_output_from_csv.py
+File : main_postprocess_from_csv.py
 
 Author: Tim Schofield
 Date: 28 May 2024
@@ -47,10 +47,13 @@ dest_folder = Path("output_xml_folders")
 df = pd.read_csv(csv_folder / FILE_NAME)
 # print(df) 
 
-all_xml_root = Path(f"{dest_folder}/all_xml").mkdir(parents = True, exist_ok = True)
-valid_xml_root = Path(f"{dest_folder}/valid_xml").mkdir(parents = True, exist_ok = True)
-invalid_xml_root = Path(f"{dest_folder}/invalid_xml").mkdir(parents = True, exist_ok = True)
+all_xml_root = Path(f"{dest_folder}/all_xml")
+valid_xml_root = Path(f"{dest_folder}/valid_xml")
+invalid_xml_root = Path(f"{dest_folder}/invalid_xml")
 
+all_xml_root.mkdir(parents = True, exist_ok = True)
+valid_xml_root.mkdir(parents = True, exist_ok = True)
+invalid_xml_root.mkdir(parents = True, exist_ok = True)
 
 log_invalid = []
 for index, row in df.iterrows():
@@ -87,6 +90,24 @@ for index, row in df.iterrows():
     #print(f"{file_path_all}")
     
     ocr_output = row["ocr content"]
+    
+    # 2% improvement
+    ocr_output = ocr_output.replace("```xml", "")
+    ocr_output = ocr_output.replace("```", "")
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    # Do this again after fix-up
+    # ocr_output = ocr_output.replace("```xml", "")
+    # ocr_output = ocr_output.replace("```", "")
     
     with open(file_path_all, 'a') as the_file:
         the_file.write(ocr_output)

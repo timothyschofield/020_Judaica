@@ -168,7 +168,16 @@ try:
       dict_returned = dict()
       dict_returned["source"] = str(image_path)
       dict_returned["error"] = error_message
-      dict_returned["ocr content"] = f'{ocr_dict["choices"][0]["message"]["content"]}'
+      
+      
+      xml_string = f'{ocr_dict["choices"][0]["message"]["content"]}'
+      
+      
+      
+      
+      
+      dict_returned["ocr content"] = xml_string
+      
       dict_returned["finish_reason"] = finish_reason
       dict_returned["usage"] = usage
     

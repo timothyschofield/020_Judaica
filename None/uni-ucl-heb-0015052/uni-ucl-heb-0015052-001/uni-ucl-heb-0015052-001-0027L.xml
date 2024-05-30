@@ -1,0 +1,581 @@
+<alto>
+  <Layout>
+    <Page>
+      <PrintSpace>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="מנחה" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Zuffgang:" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="חצות" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Mitternacht" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="זבוח" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Mitterreg:" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="Das" />
+            <String CONTENT="versle" />
+            <String CONTENT="das" />
+            <String CONTENT="wir" />
+            <String CONTENT="alts" />
+            <String CONTENT="eden," />
+            <String CONTENT="ie" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="n..." />
+            <String CONTENT="vnd" />
+            <String CONTENT="sin" />
+            <String CONTENT="vor" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="ab allme ga" />
+            <String CONTENT="be/heissens" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="ert/das" />
+            <String CONTENT="war" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="gst gabe/to" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Leutt." />
+            <String CONTENT="1." />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Exo" />
+            <String CONTENT="29." />
+          </TextLine>
+        </TextBlock>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="תמיד" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Nidergang." />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="שלם מדי שלישי קודשי" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Holoco Rodesch" />
+            <String CONTENT="kodeschym" />
+            <String CONTENT="Das" />
+            <String CONTENT="aller" />
+            <String CONTENT="heyligest" />
+            <String CONTENT="opffer." />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Als" />
+            <String CONTENT="aller" />
+            <String CONTENT="heyligisten" />
+            <String CONTENT="brantopffers/schlachtung:" />
+            <String CONTENT="ist" />
+            <String CONTENT="gegen" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="mitternacht," />
+            <String CONTENT="vnd" />
+            <String CONTENT="die" />
+            <String CONTENT="empfachung" />
+            <String CONTENT="irs" />
+            <String CONTENT="sluchs" />
+            <String CONTENT="in" />
+            <String CONTENT="die" />
+            <String CONTENT="geführ" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="deß" />
+            <String CONTENT="heiligen" />
+            <String CONTENT="diensts/ist" />
+            <String CONTENT="auch" />
+            <String CONTENT="gegen" />
+            <String CONTENT="mittermuscht" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="vnd" />
+            <String CONTENT="must" />
+            <String CONTENT="jr" />
+            <String CONTENT="blüt" />
+            <String CONTENT="zwei," />
+            <String CONTENT="malstreben" />
+            <String CONTENT="vnd" />
+            <String CONTENT="sprengen," />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="darauf" />
+            <String CONTENT="sier" />
+            <String CONTENT="gaben" />
+            <String CONTENT="vd" />
+            <String CONTENT="sprengunge" />
+            <String CONTENT="volgen" />
+            <String CONTENT="mißten/ond" />
+            <String CONTENT="man" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="must" />
+            <String CONTENT="es" />
+            <String CONTENT="schinden" />
+            <String CONTENT="vnd" />
+            <String CONTENT="zerstrücken/darnach" />
+            <String CONTENT="alles" />
+            <String CONTENT="in" />
+            <String CONTENT="deß" />
+            <String CONTENT="fewr" />
+            <String CONTENT="auffopffern" />
+          </TextLine>
+        </TextBlock>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto><alto>
+  <Layout>
+    <Page>
+      <PrintSpace>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="מנחה" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Zuffgang:" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="חצות" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Mitternacht" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="זבוח" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Mitterreg:" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="Das" />
+            <String CONTENT="versle" />
+            <String CONTENT="das" />
+            <String CONTENT="wir" />
+            <String CONTENT="alts" />
+            <String CONTENT="eden," />
+            <String CONTENT="ie" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="n..." />
+            <String CONTENT="vnd" />
+            <String CONTENT="sin" />
+            <String CONTENT="vor" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="ab allme ga" />
+            <String CONTENT="be/heissens" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="ert/das" />
+            <String CONTENT="war" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="gst gabe/to" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Leutt." />
+            <String CONTENT="1." />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Exo" />
+            <String CONTENT="29." />
+          </TextLine>
+        </TextBlock>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="תמיד" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Nidergang." />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="שלם מדי שלישי קודשי" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Holoco Rodesch" />
+            <String CONTENT="kodeschym" />
+            <String CONTENT="Das" />
+            <String CONTENT="aller" />
+            <String CONTENT="heyligest" />
+            <String CONTENT="opffer." />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Als" />
+            <String CONTENT="aller" />
+            <String CONTENT="heyligisten" />
+            <String CONTENT="brantopffers/schlachtung:" />
+            <String CONTENT="ist" />
+            <String CONTENT="gegen" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="mitternacht," />
+            <String CONTENT="vnd" />
+            <String CONTENT="die" />
+            <String CONTENT="empfachung" />
+            <String CONTENT="irs" />
+            <String CONTENT="sluchs" />
+            <String CONTENT="in" />
+            <String CONTENT="die" />
+            <String CONTENT="geführ" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="deß" />
+            <String CONTENT="heiligen" />
+            <String CONTENT="diensts/ist" />
+            <String CONTENT="auch" />
+            <String CONTENT="gegen" />
+            <String CONTENT="mittermuscht" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="vnd" />
+            <String CONTENT="must" />
+            <String CONTENT="jr" />
+            <String CONTENT="blüt" />
+            <String CONTENT="zwei," />
+            <String CONTENT="malstreben" />
+            <String CONTENT="vnd" />
+            <String CONTENT="sprengen," />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="darauf" />
+            <String CONTENT="sier" />
+            <String CONTENT="gaben" />
+            <String CONTENT="vd" />
+            <String CONTENT="sprengunge" />
+            <String CONTENT="volgen" />
+            <String CONTENT="mißten/ond" />
+            <String CONTENT="man" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="must" />
+            <String CONTENT="es" />
+            <String CONTENT="schinden" />
+            <String CONTENT="vnd" />
+            <String CONTENT="zerstrücken/darnach" />
+            <String CONTENT="alles" />
+            <String CONTENT="in" />
+            <String CONTENT="deß" />
+            <String CONTENT="fewr" />
+            <String CONTENT="auffopffern" />
+          </TextLine>
+        </TextBlock>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto><alto>
+  <Layout>
+    <Page>
+      <PrintSpace>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="מנחה" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Zuffgang:" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="חצות" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Mitternacht" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="זבוח" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Mitterreg:" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="Das" />
+            <String CONTENT="versle" />
+            <String CONTENT="das" />
+            <String CONTENT="wir" />
+            <String CONTENT="alts" />
+            <String CONTENT="eden," />
+            <String CONTENT="ie" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="n..." />
+            <String CONTENT="vnd" />
+            <String CONTENT="sin" />
+            <String CONTENT="vor" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="ab allme ga" />
+            <String CONTENT="be/heissens" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="ert/das" />
+            <String CONTENT="war" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="gst gabe/to" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Leutt." />
+            <String CONTENT="1." />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Exo" />
+            <String CONTENT="29." />
+          </TextLine>
+        </TextBlock>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="תמיד" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Nidergang." />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="שלם מדי שלישי קודשי" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Holoco Rodesch" />
+            <String CONTENT="kodeschym" />
+            <String CONTENT="Das" />
+            <String CONTENT="aller" />
+            <String CONTENT="heyligest" />
+            <String CONTENT="opffer." />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Als" />
+            <String CONTENT="aller" />
+            <String CONTENT="heyligisten" />
+            <String CONTENT="brantopffers/schlachtung:" />
+            <String CONTENT="ist" />
+            <String CONTENT="gegen" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="mitternacht," />
+            <String CONTENT="vnd" />
+            <String CONTENT="die" />
+            <String CONTENT="empfachung" />
+            <String CONTENT="irs" />
+            <String CONTENT="sluchs" />
+            <String CONTENT="in" />
+            <String CONTENT="die" />
+            <String CONTENT="geführ" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="deß" />
+            <String CONTENT="heiligen" />
+            <String CONTENT="diensts/ist" />
+            <String CONTENT="auch" />
+            <String CONTENT="gegen" />
+            <String CONTENT="mittermuscht" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="vnd" />
+            <String CONTENT="must" />
+            <String CONTENT="jr" />
+            <String CONTENT="blüt" />
+            <String CONTENT="zwei," />
+            <String CONTENT="malstreben" />
+            <String CONTENT="vnd" />
+            <String CONTENT="sprengen," />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="darauf" />
+            <String CONTENT="sier" />
+            <String CONTENT="gaben" />
+            <String CONTENT="vd" />
+            <String CONTENT="sprengunge" />
+            <String CONTENT="volgen" />
+            <String CONTENT="mißten/ond" />
+            <String CONTENT="man" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="must" />
+            <String CONTENT="es" />
+            <String CONTENT="schinden" />
+            <String CONTENT="vnd" />
+            <String CONTENT="zerstrücken/darnach" />
+            <String CONTENT="alles" />
+            <String CONTENT="in" />
+            <String CONTENT="deß" />
+            <String CONTENT="fewr" />
+            <String CONTENT="auffopffern" />
+          </TextLine>
+        </TextBlock>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto><alto>
+  <Layout>
+    <Page>
+      <PrintSpace>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="מנחה" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Zuffgang:" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="חצות" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Mitternacht" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="זבוח" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Mitterreg:" />
+          </TextLine>
+        </TextBlock>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="Das" />
+            <String CONTENT="versle" />
+            <String CONTENT="das" />
+            <String CONTENT="wir" />
+            <String CONTENT="alts" />
+            <String CONTENT="eden," />
+            <String CONTENT="ie" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="n..." />
+            <String CONTENT="vnd" />
+            <String CONTENT="sin" />
+            <String CONTENT="vor" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="ab allme ga" />
+            <String CONTENT="be/heissens" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="ert/das" />
+            <String CONTENT="war" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="gst gabe/to" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Leutt." />
+            <String CONTENT="1." />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Exo" />
+            <String CONTENT="29." />
+          </TextLine>
+        </TextBlock>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="תמיד" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Nidergang." />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="שלם מדי שלישי קודשי" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Holoco Rodesch" />
+            <String CONTENT="kodeschym" />
+            <String CONTENT="Das" />
+            <String CONTENT="aller" />
+            <String CONTENT="heyligest" />
+            <String CONTENT="opffer." />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Als" />
+            <String CONTENT="aller" />
+            <String CONTENT="heyligisten" />
+            <String CONTENT="brantopffers/schlachtung:" />
+            <String CONTENT="ist" />
+            <String CONTENT="gegen" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="mitternacht," />
+            <String CONTENT="vnd" />
+            <String CONTENT="die" />
+            <String CONTENT="empfachung" />
+            <String CONTENT="irs" />
+            <String CONTENT="sluchs" />
+            <String CONTENT="in" />
+            <String CONTENT="die" />
+            <String CONTENT="geführ" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="deß" />
+            <String CONTENT="heiligen" />
+            <String CONTENT="diensts/ist" />
+            <String CONTENT="auch" />
+            <String CONTENT="gegen" />
+            <String CONTENT="mittermuscht" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="vnd" />
+            <String CONTENT="must" />
+            <String CONTENT="jr" />
+            <String CONTENT="blüt" />
+            <String CONTENT="zwei," />
+            <String CONTENT="malstreben" />
+            <String CONTENT="vnd" />
+            <String CONTENT="sprengen," />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="darauf" />
+            <String CONTENT="sier" />
+            <String CONTENT="gaben" />
+            <String CONTENT="vd" />
+            <String CONTENT="sprengunge" />
+            <String CONTENT="volgen" />
+            <String CONTENT="mißten/ond" />
+            <String CONTENT="man" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="must" />
+            <String CONTENT="es" />
+            <String CONTENT="schinden" />
+            <String CONTENT="vnd" />
+            <String CONTENT="zerstrücken/darnach" />
+            <String CONTENT="alles" />
+            <String CONTENT="in" />
+            <String CONTENT="deß" />
+            <String CONTENT="fewr" />
+            <String CONTENT="auffopffern" />
+          </TextLine>
+        </TextBlock>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>
