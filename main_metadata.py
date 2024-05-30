@@ -99,21 +99,21 @@ for index, row in df.iterrows():
     # We only need this to check if it is NISC data 000
     item_000 = file_name_list[-2:-1][0]
     
-  
     #print(file_name)                 
     #print(item_name)
     #print(book_name)
     #exit()
 
-
     # Make the folders
     book_name_path = Path(f"{metadata_output}/{book_name}")
     item_name_path = Path(f"{metadata_output}/{book_name}/{item_name}")
     ocr_path = Path(f"{metadata_output}/{book_name}/{item_name}/ocr")
+    
     book_name_path.mkdir(parents = True, exist_ok = True)
     item_name_path.mkdir(parents = True, exist_ok = True)
     ocr_path.mkdir(parents = True, exist_ok = True)
-
+    
+    
     if book_name != old_book_name:
         # We have encountered a new book
         old_book_name = book_name
@@ -133,6 +133,10 @@ for index, row in df.iterrows():
                 
                 print(f"New non NISC item {item_name=}\n")
                 print(f"Old item data {item_data=}\n")
+                file_to_write = f"{item_name_path}/{item_name}.xml"
+                print(f"{file_to_write=}")
+                with open(f"{item_name_path}/{item_name}.xml", 'a') as the_file:
+                    the_file.write("hdklhs")
                 
                 # So start the new item's data off by inserting the NISC data for that book
                 item_data = []
@@ -143,10 +147,16 @@ for index, row in df.iterrows():
                 # Not new item OR NISC data
                 item_data.append(file_name)
     
-    
-    
-    
-    
+
+
+  
+print(f"Last Old item data {item_data=}\n") 
+file_to_write = f"{item_name_path}/{item_name}.xml"
+print(f"{file_to_write=}")
+ 
+with open(f"{item_name_path}/{item_name}.xml", 'a') as the_file:
+   the_file.write("hdklhs")  
+   
    
     
    
