@@ -45,8 +45,6 @@ One xml metadata file per item
 Each metadata file refers to each of the xml data files in that item AND the files in NISC
 """
 
-# FILE_NAME = "Judaica_2024-05-27-No_Floats-return-ALTO-001-261.csv"
-# FILE_NAME = "Judaica_2024-05-29T15-12-54_generates_invalid_xml_22.csv"
 FILE_NAME = "Judaica_2024-05-29T16-13-23_full_278.csv"
 
 csv_folder = Path("input_gpt")
@@ -56,9 +54,9 @@ dest_folder = Path(f"output_xml_folders/judaica_xml_{get_file_timestamp()}")
 df = pd.read_csv(csv_folder / FILE_NAME)
 # print(df) 
 
-all_xml_root = Path(f"{dest_folder}/all_xml")
-valid_xml_root = Path(f"{dest_folder}/valid_xml")
-invalid_xml_root = Path(f"{dest_folder}/invalid_xml")
+all_xml_root = Path(f"{dest_folder}/all_xml/ocr")
+valid_xml_root = Path(f"{dest_folder}/valid_xml/ocr")
+invalid_xml_root = Path(f"{dest_folder}/invalid_xml/ocr")
 
 all_xml_root.mkdir(parents = True, exist_ok = True)
 valid_xml_root.mkdir(parents = True, exist_ok = True)

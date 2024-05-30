@@ -67,10 +67,38 @@ metadata_input = Path(f"metadata_input/METADATA - Proquest UCL - Judaica Batch 1
 df = pd.read_csv(metadata_input)
 # print(df)
 
-metadata_output = Path(f"metadata_output")
+metadata_output = Path(f"metadata_output/judaica_xml_{get_file_timestamp()}")
 
+# There is no all_xml, valid_xml, invalid_xml folders
+# This all assumes all xml is valid - no need to mention
+for index, row in df.iterrows():
+    # uni-ucl-heb-0015052-000-0000B.jpg image_name
+    # uni-ucl-heb-0015052-000-0000B     file_name
+    # uni-ucl-heb-0015052-000           item_name
+    # uni-ucl-heb-0015052               book_name
+    
+    image_name = row["Image name"]                  
+    file_name = Path(image_name).stem         
+    
+    file_name_list = file_name.split("-")
+    
+    item_name = file_name_list[:-1]
+    item_name = "-".join(item_name)                 
+    
+    book_name = file_name_list[:-2]
+    book_name = "-".join(book_name)
+    
+    print(file_name)                 
+    print(item_name)
+    print(book_name)
 
+    book_name_path = Path(f"{metadata_output}/{book_name}")
+    item_name_path = Path(f"{metadata_output}/{book_name}/{item_name}")
+    ocr_path = Path(f"{metadata_output}/{book_name}/{item_name}/ocr")
 
+    book_name_path.mkdir(parents = True, exist_ok = True)
+    item_name_path.mkdir(parents = True, exist_ok = True)
+    ocr_path.mkdir(parents = True, exist_ok = True)
 
 
 
