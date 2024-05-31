@@ -1,5 +1,5 @@
 from pathlib import Path 
-
+import math
 
 # The front matter of the book
 def get_nsic_line(this_row, index):
@@ -21,7 +21,7 @@ def get_nsic_line(this_row, index):
     return  this_line
 
 
-
+####################################################################
 # Regular body of the book
 def get_page_line(this_row, index):
     image_name = this_row["Image name"]
@@ -62,6 +62,8 @@ def get_page_line(this_row, index):
         if type(illustration_type).__name__ != "str": 
             illustration_type = ""
         else:
+            if math.isnan(instances_of) != True:
+                instances_of = int(instances_of)
             illustration_type = f'<pagecontent number="{instances_of}">{illustration_type}</pagecontent>'
             
         all_illustration_type = f"{all_illustration_type}{illustration_type}"
@@ -84,12 +86,30 @@ def get_page_line(this_row, index):
     return  this_line
 
 
+####################################################################
+def get_front_tags(item_name):
+    front_tags = f"<rec>\n\n<itemid>{item_name}</itemid>\n\n<subscription>\n\t<unit>unpublished</unit>\n\t<country>uni</country>\n</subscription>\n\n<itemimagefiles>\n"
+    return front_tags
 
 
-
-
-
-
+def get_back_tags(item_name):
+    back_tags = (   f"</itemimagefiles>\n\n<rec_search>\n<pqid>{item_name}</pqid>\n"
+                    f"<title>unknown</title>\n"
+                    f"<author_main>\n\t<author_name>unknown</author_name>\n\t<author_corrected>unknown</author_corrected>\n\t<author_uninverted>unknown</author_uninverted>\n</author_main>\n"
+                    f"<startdate>16170101</startdate>\n"
+                    f"<enddate>16171231</enddate>\n"
+                    f"<displaydate>1617</displaydate>\n"
+                    f"<publisher_printer>unknown</publisher_printer>\n"
+                    f"<pagination>unknown</pagination>\n"
+                    f"<source_library>unknown</source_library>\n"
+                    f"<illustrations>\n"
+                    f"\t<illustration>Illuminated lettering</illustration>\n"
+                    f"\t<illustration>Illustrated page borders</illustration>\n"
+                    f"</illustrations>\n"
+                    f"\n</rec_search>\n\n</rec>"
+                    )
+    
+    return back_tags
 
 
 

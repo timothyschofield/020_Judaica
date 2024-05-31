@@ -57,7 +57,7 @@ import os
 import io
 import xml.etree.ElementTree as ET
 from helper_functions_judaica import validate_xml, get_file_timestamp
-from main_metadata_layout import get_nsic_line, get_page_line
+from main_metadata_layout import get_nsic_line, get_page_line, get_front_tags, get_back_tags
 import requests
 
 
@@ -140,6 +140,11 @@ for index, row in df.iterrows():
                     print(f"{file_to_write=}")
                     
                     items_on_lines = '\n'.join(item_data)
+                    front_tags = get_front_tags(item_name)
+                    back_tags = get_back_tags(item_name)
+
+                    items_on_lines = f"{front_tags}{items_on_lines}{back_tags}"
+                    
                     with open(file_to_write, 'a') as the_file:
                         the_file.write(items_on_lines)
                 
@@ -162,6 +167,11 @@ file_to_write = f"{old_item_path}/{old_item_name}.xml"
 print(f"{file_to_write=}")
 
 items_on_lines = '\n'.join(item_data)
+front_tags = get_front_tags(item_name)
+back_tags = get_back_tags(item_name)
+
+items_on_lines = f"{front_tags}{items_on_lines}{back_tags}"
+
 with open(file_to_write, 'a') as the_file:
      the_file.write(items_on_lines)
      
