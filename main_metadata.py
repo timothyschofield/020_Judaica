@@ -59,11 +59,14 @@ import xml.etree.ElementTree as ET
 from helper_functions_judaica import validate_xml, get_file_timestamp
 import requests
 
+def get_nsic_line(this_row, index):
+    
+    image_name = this_row["Image name"]
+    file_name = Path(image_name).stem
+    return  file_name
 
-"""
 
 
-"""
 # Read spreadsheet from sheet downloaded from Google drive
 metadata_input = Path(f"metadata_input/METADATA - Proquest UCL - Judaica Batch 1 (C260_0003) - BENCHMARK.csv")
 
@@ -120,10 +123,10 @@ for index, row in df.iterrows():
         if item_000 == "000":
             # Which it will be
             # print(f"Old NISC data: {nisc_data}\n")
-            nisc_data = [file_name]
+            nisc_data = [get_nsic_line(row, index)]
     else:
         if item_000 == "000":
-            nisc_data.append(file_name)
+            nisc_data.append(get_nsic_line(row, index))
         else:
             if item_name != old_item_name:
                 # We have encountered a new non NISC item
@@ -136,28 +139,41 @@ for index, row in df.iterrows():
                     print(f"Old item data {item_data=}\n")
                     file_to_write = f"{old_item_path}/{old_item_name}.xml"
                     print(f"{file_to_write=}")
+                    
                     with open(file_to_write, 'a') as the_file:
-                        the_file.write(str(item_data))
+                        
+                        output_df = pd.DataFrame(item_data)
+                        output_df.to_csv(the_file, index=False)
                 
                 first_time_in = False
                 # So start the new item's data off by inserting the NISC data for that book
                 item_data = []
                 item_data.extend(nisc_data)
-     
+                item_data.append(get_nsic_line(row, index))
+
                 old_item_name = item_name
                 old_item_path = item_name_path
             else:
                 # Not new item OR NISC data
-                item_data.append(file_name)
+                item_data.append(get_nsic_line(row, index))
     
 
-print(f"Last Old item data {item_data=}\n") 
+print(f"Last Old item data ****{item_data}****\n") 
 file_to_write = f"{old_item_path}/{old_item_name}.xml"
 
 print(f"{file_to_write=}")
 
 with open(file_to_write, 'a') as the_file:
-   the_file.write(str(item_data))  
+    output_df = pd.DataFrame(item_data)
+    
+    print("********************************")
+    print(output_df.iloc[0])
+    print(output_df.iloc[1])
+    print(output_df.iloc[2])
+    print("********************************")
+     
+    output_df.to_csv(the_file, index=False)
+    
    
    
     
