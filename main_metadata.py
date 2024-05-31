@@ -80,8 +80,7 @@ nisc_data = None
 
 first_time_in = True
 
-# There is no all_xml, valid_xml, invalid_xml folders
-# This all assumes all xml is valid - no need to mention
+
 for index, row in df.iterrows():
     # uni-ucl-heb-0015052-000-0000B.jpg image_name
     # uni-ucl-heb-0015052-000-0000B     file_name
@@ -130,7 +129,7 @@ for index, row in df.iterrows():
                 # We have encountered a new non NISC item
                 
                 # The first time in - before data has been accumulated - you don't want it to write
-                # The second time in you want it to write the data thats been accumulated (the old data) to the old path
+                # The second time in you want it to write the data that's been accumulated (the old data) to the old path
                 print(f"New non NISC item {item_name=}\n")
                 if first_time_in != True:
                     first_time_in = True
@@ -156,7 +155,7 @@ print(f"Last Old item data {item_data=}\n")
 file_to_write = f"{old_item_path}/{old_item_name}.xml"
 
 print(f"{file_to_write=}")
- 
+
 with open(file_to_write, 'a') as the_file:
    the_file.write(str(item_data))  
    
