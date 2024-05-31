@@ -61,7 +61,7 @@ import requests
 
 
 
-# The front matter
+# The front matter of the book
 def get_nsic_line(this_row, index):
     image_name = this_row["Image name"]
     file_name = Path(image_name).stem
@@ -77,10 +77,8 @@ def get_nsic_line(this_row, index):
     if type(page_type).__name__ != "str": page_type = "None"
     page_type_element = f"<pagetype>{page_type}</pagetype>"
         
-    #this_line = f"<itemimage>\n{itemimagefile1_element}{imagenumber_element}{colour_element}{page_type_element}\n</itemimage>\n"
-    this_line = f"{itemimagefile1_element}{imagenumber_element}{colour_element}{page_type_element}"
+    this_line = f"<itemimage>\n\t{itemimagefile1_element}{imagenumber_element}{colour_element}{page_type_element}\n</itemimage>"
     return  this_line
-
 
 # Regular body of the book
 def get_page_line(this_row, index):
@@ -98,9 +96,7 @@ def get_page_line(this_row, index):
     if type(page_type).__name__ != "str": page_type = "None"
     page_type_element = f"<pagetype>{page_type}</pagetype>"
         
-    #this_line = f"<itemimage>\n{itemimagefile1_element}{imagenumber_element}{colour_element}{page_type_element}\n</itemimage>\n"
-    this_line = f"{itemimagefile1_element}{imagenumber_element}{colour_element}{page_type_element}"
-    
+    this_line = f"<itemimage>\n\t{itemimagefile1_element}{imagenumber_element}{colour_element}{page_type_element}\n</itemimage>\n"
     return  this_line
 
 # Read spreadsheet from sheet downloaded from Google drive
@@ -176,10 +172,9 @@ for index, row in df.iterrows():
                     file_to_write = f"{old_item_path}/{old_item_name}.xml"
                     print(f"{file_to_write=}")
                     
+                    items_on_lines = '\n'.join(item_data)
                     with open(file_to_write, 'a') as the_file:
-                        
-                        output_df = pd.DataFrame(item_data)
-                        output_df.to_csv(the_file, index=False, header=False)
+                        the_file.write(items_on_lines)
                 
                 first_time_in = False
                 # So start the new item's data off by inserting the NISC data for that book
@@ -199,10 +194,11 @@ file_to_write = f"{old_item_path}/{old_item_name}.xml"
 
 print(f"{file_to_write=}")
 
+items_on_lines = '\n'.join(item_data)
 with open(file_to_write, 'a') as the_file:
-    
-    output_df = pd.DataFrame(item_data)
-    output_df.to_csv(the_file, index=False, header=False)
+     the_file.write(items_on_lines)
+     
+     
     
    
    
