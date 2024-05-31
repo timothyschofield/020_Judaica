@@ -57,47 +57,12 @@ import os
 import io
 import xml.etree.ElementTree as ET
 from helper_functions_judaica import validate_xml, get_file_timestamp
+from main_metadata_layout import get_nsic_line, get_page_line
 import requests
 
 
 
-# The front matter of the book
-def get_nsic_line(this_row, index):
-    image_name = this_row["Image name"]
-    file_name = Path(image_name).stem
-    
-    itemimagefile1_element = f"<itemimagefile1>{file_name}</itemimagefile1>"
-    imagenumber_element = f"<imagenumber>{index + 1}</imagenumber>"
-    
-    colour = this_row["Colour"]
-    if type(colour).__name__ != "str": colour = "None"
-    colour_element = f"<colour>{colour}</colour>"
-        
-    page_type = this_row["Page Type"]
-    if type(page_type).__name__ != "str": page_type = "None"
-    page_type_element = f"<pagetype>{page_type}</pagetype>"
-        
-    this_line = f"<itemimage>\n\t{itemimagefile1_element}{imagenumber_element}{colour_element}{page_type_element}\n</itemimage>"
-    return  this_line
 
-# Regular body of the book
-def get_page_line(this_row, index):
-    image_name = this_row["Image name"]
-    file_name = Path(image_name).stem
-    
-    itemimagefile1_element = f"<itemimagefile1>{file_name}</itemimagefile1>"
-    imagenumber_element = f"<imagenumber>{index + 1}</imagenumber>"
-    
-    colour = this_row["Colour"]
-    if type(colour).__name__ != "str": colour = "None"
-    colour_element = f"<colour>{colour}</colour>"
-        
-    page_type = this_row["Page Type"]
-    if type(page_type).__name__ != "str": page_type = "None"
-    page_type_element = f"<pagetype>{page_type}</pagetype>"
-        
-    this_line = f"<itemimage>\n\t{itemimagefile1_element}{imagenumber_element}{colour_element}{page_type_element}\n</itemimage>\n"
-    return  this_line
 
 # Read spreadsheet from sheet downloaded from Google drive
 metadata_input = Path(f"metadata_input/METADATA - Proquest UCL - Judaica Batch 1 (C260_0003) - BENCHMARK.csv")
