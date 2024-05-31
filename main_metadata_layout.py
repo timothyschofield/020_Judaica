@@ -6,8 +6,18 @@ def get_nsic_line(this_row, index):
     image_name = this_row["Image name"]
     file_name = Path(image_name).stem
     
-    itemimagefile1_element = f"<itemimagefile1>{file_name}</itemimagefile1>"
-    imagenumber_element = f"<imagenumber>{index + 1}</imagenumber>"
+    itemimagefile_element = f"<itemimagefile1>{file_name}</itemimagefile1>"
+    imagenumber_element = f"<imagenumber>{index}</imagenumber>"
+    
+    order = 0
+    if file_name[-2:] == "1L": order = 1
+    if file_name[-2:] == "2R": order = 2
+    if file_name[-2:] == "3L": order = 3
+    if file_name[-2:] == "4R": order = 4
+    
+    #print(file_name[-2:])
+    
+    order_element = f"<order>{order}</order>"
     
     colour = this_row["Colour"]
     if type(colour).__name__ != "str": colour = "None"
@@ -17,18 +27,22 @@ def get_nsic_line(this_row, index):
     if type(page_type).__name__ != "str": page_type = "None"
     page_type_element = f"<pagetype>{page_type}</pagetype>"
         
-    this_line = f"<itemimage>\n\t{itemimagefile1_element}{imagenumber_element}{colour_element}{page_type_element}\n</itemimage>"
+    this_line = f"<itemimage>\n\t{itemimagefile_element}{order_element}{imagenumber_element}{colour_element}{page_type_element}\n</itemimage>"
     return  this_line
 
 
 ####################################################################
 # Regular body of the book
-def get_page_line(this_row, index):
+def get_page_line(this_row, index, book_index):
     image_name = this_row["Image name"]
     file_name = Path(image_name).stem
     
-    itemimagefile1_element = f"<itemimagefile1>{file_name}</itemimagefile1>"
-    imagenumber_element = f"<imagenumber>{index + 1}</imagenumber>"
+    itemimagefile_element = f"<itemimagefile1>{file_name}</itemimagefile1>"
+    imagenumber_element = f"<imagenumber>{index}</imagenumber>"
+    
+    order = book_index # because of the weird NISC numbering
+   
+    order_element = f"<order>{order}</order>"
     
     colour = this_row["Colour"]
     if type(colour).__name__ != "str": colour = "None"
@@ -39,7 +53,7 @@ def get_page_line(this_row, index):
     page_type_element = f"<pagetype>{page_type}</pagetype>"
         
     # This is the basic line - all tabs included even if value "None"
-    this_line = f"{itemimagefile1_element}{imagenumber_element}{colour_element}{page_type_element}"
+    this_line = f"{itemimagefile_element}{order_element}{imagenumber_element}{colour_element}{page_type_element}"
     
     ###########################################################################################
     # elements below here are not included in the output if they have no value

@@ -80,6 +80,22 @@ nisc_data = None
 
 first_time_in = True
 
+# Nasty
+def how_many_nisc_are_numbered(nisc_data):
+    
+    len_nisc = len(nisc_data)
+    
+    four_zero_count = 0
+    for item in nisc_data:
+        item_list = item.split("itemimagefile1")
+        file_name = item_list[1]
+
+        if "0000" in file_name: four_zero_count = four_zero_count + 1
+
+    num_non_0000 = len_nisc - four_zero_count
+    
+    return num_non_0000
+
 
 for index, row in df.iterrows():
     # uni-ucl-heb-0015052-000-0000B.jpg image_name
@@ -122,10 +138,13 @@ for index, row in df.iterrows():
         if item_000 == "000":
             # Which it will be
             # print(f"Old NISC data: {nisc_data}\n")
-            nisc_data = [get_nsic_line(row, index)]
+            image_index =  1
+            nisc_data = [get_nsic_line(row, image_index)]
+            
     else:
         if item_000 == "000":
-            nisc_data.append(get_nsic_line(row, index))
+            image_index = image_index + 1
+            nisc_data.append(get_nsic_line(row, image_index))
         else:
             if item_name != old_item_name:
                 # We have encountered a new non NISC item
@@ -152,13 +171,21 @@ for index, row in df.iterrows():
                 # So start the new item's data off by inserting the NISC data for that book
                 item_data = []
                 item_data.extend(nisc_data)
-                item_data.append(get_page_line(row, index))
+                
+                nisc_offset = how_many_nisc_are_numbered(nisc_data)
+                
+                 # you need to know how many are numbered in the NISC data
+                book_index = nisc_offset + 1
+                image_index = image_index + 1
+                item_data.append(get_page_line(row, image_index, book_index))
 
                 old_item_name = item_name
                 old_item_path = item_name_path
             else:
                 # Not new item OR NISC data
-                item_data.append(get_page_line(row, index))
+                book_index = book_index + 1
+                image_index = image_index + 1
+                item_data.append(get_page_line(row, image_index, book_index))
     
 
 # print(f"Last Old item data ****{item_data}****\n") 
