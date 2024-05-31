@@ -104,9 +104,11 @@ for index, row in df.iterrows():
     # Make the folders
     book_name_path = Path(f"{metadata_output}/{book_name}")
     item_name_path = Path(f"{metadata_output}/{book_name}/{item_name}")
-    if item_000 != "000":
-        ocr_path = Path(f"{metadata_output}/{book_name}/{item_name}/ocr")
-        ocr_path.mkdir(parents = True, exist_ok = True)
+    
+    # I'm confused
+    # if item_000 != "000":
+    ocr_path = Path(f"{metadata_output}/{book_name}/{item_name}/ocr")
+    ocr_path.mkdir(parents = True, exist_ok = True)
     
     book_name_path.mkdir(parents = True, exist_ok = True)
     item_name_path.mkdir(parents = True, exist_ok = True)

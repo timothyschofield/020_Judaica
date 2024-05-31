@@ -38,7 +38,6 @@ def get_page_line(this_row, index):
     if type(page_type).__name__ != "str": page_type = "None"
     page_type_element = f"<pagetype>{page_type}</pagetype>"
         
-
     # This is the basic line - all tabs included even if value "None"
     this_line = f"{itemimagefile1_element}{imagenumber_element}{colour_element}{page_type_element}"
     
@@ -52,11 +51,33 @@ def get_page_line(this_row, index):
     
     this_line = f"{this_line}{order_label_element}"
     
-    #################
+    #######################
+    # illustration_type_1 to illustration_type_5
+    all_illustration_type = ""
+    for i in range(1, 6):
+        
+        illustration_type = this_row[f"illustration_type_{i}"]  
+        instances_of = this_row[f"instances_of_{i}"]
+        
+        if type(illustration_type).__name__ != "str": 
+            illustration_type = ""
+        else:
+            illustration_type = f'<pagecontent number="{instances_of}">{illustration_type}</pagecontent>'
+            
+        all_illustration_type = f"{all_illustration_type}{illustration_type}"
     
+    this_line = f"{this_line}{all_illustration_type}"
+
+
+    #######################
+    translation = this_row["translation"]  
+    if type(translation).__name__ != "str": 
+        translation = ""
+    else:
+        translation = f"<translation>{translation}</translation>"
     
-    
-    
+    this_line = f"{this_line}{translation}"
+
     # Wrap it in tags
     this_line = f"<itemimage>\n\t{this_line}\n</itemimage>\n"
     
