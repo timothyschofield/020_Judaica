@@ -59,13 +59,49 @@ import xml.etree.ElementTree as ET
 from helper_functions_judaica import validate_xml, get_file_timestamp
 import requests
 
+
+
+# The front matter
 def get_nsic_line(this_row, index):
-    
     image_name = this_row["Image name"]
     file_name = Path(image_name).stem
-    return  file_name
+    
+    itemimagefile1_element = f"<itemimagefile1>{file_name}</itemimagefile1>"
+    imagenumber_element = f"<imagenumber>{index + 1}</imagenumber>"
+    
+    colour = this_row["Colour"]
+    if type(colour).__name__ != "str": colour = "None"
+    colour_element = f"<colour>{colour}</colour>"
+        
+    page_type = this_row["Page Type"]
+    if type(page_type).__name__ != "str": page_type = "None"
+    page_type_element = f"<pagetype>{page_type}</pagetype>"
+        
+    #this_line = f"<itemimage>\n{itemimagefile1_element}{imagenumber_element}{colour_element}{page_type_element}\n</itemimage>\n"
+    this_line = f"{itemimagefile1_element}{imagenumber_element}{colour_element}{page_type_element}"
+    return  this_line
 
 
+# Regular body of the book
+def get_page_line(this_row, index):
+    image_name = this_row["Image name"]
+    file_name = Path(image_name).stem
+    
+    itemimagefile1_element = f"<itemimagefile1>{file_name}</itemimagefile1>"
+    imagenumber_element = f"<imagenumber>{index + 1}</imagenumber>"
+    
+    colour = this_row["Colour"]
+    if type(colour).__name__ != "str": colour = "None"
+    colour_element = f"<colour>{colour}</colour>"
+        
+    page_type = this_row["Page Type"]
+    if type(page_type).__name__ != "str": page_type = "None"
+    page_type_element = f"<pagetype>{page_type}</pagetype>"
+        
+    #this_line = f"<itemimage>\n{itemimagefile1_element}{imagenumber_element}{colour_element}{page_type_element}\n</itemimage>\n"
+    this_line = f"{itemimagefile1_element}{imagenumber_element}{colour_element}{page_type_element}"
+    
+    return  this_line
 
 # Read spreadsheet from sheet downloaded from Google drive
 metadata_input = Path(f"metadata_input/METADATA - Proquest UCL - Judaica Batch 1 (C260_0003) - BENCHMARK.csv")
@@ -136,43 +172,37 @@ for index, row in df.iterrows():
                 print(f"New non NISC item {item_name=}\n")
                 if first_time_in != True:
                     first_time_in = True
-                    print(f"Old item data {item_data=}\n")
+                    # print(f"Old item data {item_data=}\n")
                     file_to_write = f"{old_item_path}/{old_item_name}.xml"
                     print(f"{file_to_write=}")
                     
                     with open(file_to_write, 'a') as the_file:
                         
                         output_df = pd.DataFrame(item_data)
-                        output_df.to_csv(the_file, index=False)
+                        output_df.to_csv(the_file, index=False, header=False)
                 
                 first_time_in = False
                 # So start the new item's data off by inserting the NISC data for that book
                 item_data = []
                 item_data.extend(nisc_data)
-                item_data.append(get_nsic_line(row, index))
+                item_data.append(get_page_line(row, index))
 
                 old_item_name = item_name
                 old_item_path = item_name_path
             else:
                 # Not new item OR NISC data
-                item_data.append(get_nsic_line(row, index))
+                item_data.append(get_page_line(row, index))
     
 
-print(f"Last Old item data ****{item_data}****\n") 
+# print(f"Last Old item data ****{item_data}****\n") 
 file_to_write = f"{old_item_path}/{old_item_name}.xml"
 
 print(f"{file_to_write=}")
 
 with open(file_to_write, 'a') as the_file:
-    output_df = pd.DataFrame(item_data)
     
-    print("********************************")
-    print(output_df.iloc[0])
-    print(output_df.iloc[1])
-    print(output_df.iloc[2])
-    print("********************************")
-     
-    output_df.to_csv(the_file, index=False)
+    output_df = pd.DataFrame(item_data)
+    output_df.to_csv(the_file, index=False, header=False)
     
    
    
