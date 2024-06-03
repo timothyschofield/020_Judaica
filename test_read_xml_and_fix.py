@@ -63,28 +63,7 @@ for xml_file in xml_source_list:
         
         
         
-        exit()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+   
 
 
 

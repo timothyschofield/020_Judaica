@@ -49,14 +49,14 @@ FILE_NAME = "Judaica_2024-05-29T16-13-23_full_278.csv"
 
 csv_folder = Path("input_gpt")
 
-dest_folder = Path(f"output_xml_folders/judaica_xml_{get_file_timestamp()}")
+output_folder = Path(f"output_xml_folders/judaica_xml_{get_file_timestamp()}")
  
 df = pd.read_csv(csv_folder / FILE_NAME)
 # print(df) 
 
-all_xml_root = Path(f"{dest_folder}/all_xml/ocr")
-valid_xml_root = Path(f"{dest_folder}/valid_xml/ocr")
-invalid_xml_root = Path(f"{dest_folder}/invalid_xml/ocr")
+all_xml_root = Path(f"{output_folder}/all_xml/ocr")
+valid_xml_root = Path(f"{output_folder}/valid_xml/ocr")
+invalid_xml_root = Path(f"{output_folder}/invalid_xml/ocr")
 
 all_xml_root.mkdir(parents = True, exist_ok = True)
 valid_xml_root.mkdir(parents = True, exist_ok = True)
@@ -102,6 +102,9 @@ for index, row in df.iterrows():
     ocr_output = ocr_output.replace("```xml", "")
     ocr_output = ocr_output.replace("```", "")
     
+    # ensure all XML elements are properly closed and nested.
+    
+    
     
     # Do this again after fix-up
     # ocr_output = ocr_output.replace("```xml", "")
@@ -126,7 +129,7 @@ for index, row in df.iterrows():
         log_invalid.append(this_invalid)
 
 log_df = pd.DataFrame(log_invalid)
-log_path = Path(f"{dest_folder}/invalid_log_{get_file_timestamp()}.csv")
+log_path = Path(f"{output_folder}/invalid_log_{get_file_timestamp()}.csv")
 with open(log_path, "w") as f:
     log_df.to_csv(f, index=False)
 

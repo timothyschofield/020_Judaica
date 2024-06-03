@@ -12,7 +12,7 @@ from db import OPENAI_API_KEY
 
 # from many_word_on_line_urls import URL_PATH_LIST
 # from generates_invalid_xml import URL_PATH_LIST
-from judaica_urls_batch1 import URL_PATH_LIST
+from urls_judaica_batch1 import URL_PATH_LIST
 
 from helper_functions_judaica import encode_image, get_file_timestamp, is_json, create_and_save_dataframe, make_payload
 import base64
@@ -33,7 +33,12 @@ except Exception as ex:
     print("Exception:", ex)
     exit()
 
+
+
+
+MODEL = "gpt-4-vision-preview" # 4096 - I've tested it
 MODEL = "gpt-4o"   # max_tokens 4096
+
 
 prompt = (
         f"Please OCR this document and extract the text"
@@ -77,10 +82,11 @@ prompt = (
         f"Return only the text do not make comments"
         f"Do not wrap the returned text with backticks"
 )
+# ensure all XML elements are properly closed and nested.
 
+source_type = "url" # url or local
 count = 0
 project_name = "Judaica"
-source_type = "url" # url or local
 batch_size = 20 # saves every batch_size
 time_stamp = get_file_timestamp()
 experiment = "full"
@@ -100,8 +106,6 @@ headers = {
 }
 
 
-
-#image_path_list = ["https://lrfhec.maxcommunications.co.uk/LRF/JUDAICA/IMAGES/uni-ucl-heb-0015052/uni-ucl-heb-0015052-001/uni-ucl-heb-0015052-001-0004R.jpg"]
 print("####################################### START OUTPUT ######################################")
 try:
   
@@ -113,6 +117,8 @@ try:
     count+=1
     print(f"count: {count}")
 
+    # image_path = "input_gpt/uni-ucl-heb-0015052-001-0011L.jpg"
+    
     # "url" or "local"
     if source_type == "url":
       url_request = image_path

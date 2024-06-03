@@ -1,38 +1,22 @@
 """
-File : main_pmetadata.py
+File : main_metadata.py
 
 Author: Tim Schofield
 Date: 30 May 2024
 
-# I don't have authenication for an Max account
+# I don't have authenication for a Max account
 sheet_url = "https://docs.google.com/spreadsheets/d/1hmvDZgrYD2JA6NuI7lkSXwx7EzK_ENyDf5sDFmtNQlo/edit#gid=0"
 csv_export_url = sheet_url.replace('/edit#gid=', '/export?format=csv&gid=')
 pd.read_csv(csv_export_url)
 print(pd)
 
-Image name
-Image url link	
-Image	
-Page Type	
-Colour	
-Page number	
-illustration_type_1	
-instances_of_1	
-illustration_type_2	
-instances_of_2	
-illustration_type_3	
-instances_of_3	
-illustration_type_4	
-instances_of_4	
-illustration_type_5	
-instances_of_5	
-translation
 
 Required file hierachy
 
 uni-ucl-heb-0015052                             <<<<< this the book level
     
-    uni-ucl-heb-0015052-000                     <<<<< this item folder contains NO XML
+    uni-ucl-heb-0015052-000                     <<<<< this item folder contains no XML but there is an ocr folder
+        ocr
         *.jpg
         *.tiff
    
@@ -59,10 +43,6 @@ import xml.etree.ElementTree as ET
 from helper_functions_judaica import validate_xml, get_file_timestamp
 from main_metadata_layout import get_nsic_line, get_page_line, get_front_tags, get_back_tags
 import requests
-
-
-
-
 
 # Read spreadsheet from sheet downloaded from Google drive
 metadata_input = Path(f"metadata_input/METADATA - Proquest UCL - Judaica Batch 1 (C260_0003) - BENCHMARK.csv")
@@ -114,7 +94,7 @@ for index, row in df.iterrows():
     book_name = file_name_list[:-2]
     book_name = "-".join(book_name)
     
-    # We only need this to check if it is NISC data 000
+    # We only need this to check if it is NISC data "000"
     item_000 = file_name_list[-2:-1][0]
 
     # Make the folders
@@ -159,8 +139,8 @@ for index, row in df.iterrows():
                     print(f"{file_to_write=}")
                     
                     items_on_lines = '\n'.join(item_data)
-                    front_tags = get_front_tags(item_name)
-                    back_tags = get_back_tags(item_name)
+                    front_tags = get_front_tags(old_item_name)  
+                    back_tags = get_back_tags(old_item_name)  
 
                     items_on_lines = f"{front_tags}{items_on_lines}{back_tags}"
                     
