@@ -1,0 +1,90 @@
+<alto>
+  <Layout>
+    <Page>
+      <PrintSpace>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="Der" />
+            <String CONTENT="gantz" />
+            <String CONTENT="Jüdisch" />
+            <String CONTENT="glaub" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="mit" />
+            <String CONTENT="sampt" />
+            <String CONTENT="einer" />
+            <String CONTENT="gründtlichen" />
+            <String CONTENT="vnd" />
+            <String CONTENT="war" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="hafften" />
+            <String CONTENT="anzaygung" />
+            <String CONTENT="Aller" />
+            <String CONTENT="Satzungen" />
+            <String CONTENT="Ceremonien" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Gesetzen" />
+            <String CONTENT="haymliche" />
+            <String CONTENT="vnd" />
+            <String CONTENT="offentliche" />
+            <String CONTENT="Gebreüch" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="deren" />
+            <String CONTENT="sich" />
+            <String CONTENT="dye" />
+            <String CONTENT="Juden" />
+            <String CONTENT="halten" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Durch" />
+            <String CONTENT="das" />
+            <String CONTENT="ganz" />
+            <String CONTENT="Jar" />
+            <String CONTENT="Mit" />
+            <String CONTENT="Schönen" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="vnd" />
+            <String CONTENT="ge" />
+            <String CONTENT="gründten" />
+            <String CONTENT="Argumenten" />
+            <String CONTENT="wider" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Ihren" />
+            <String CONTENT="Glauben" />
+            <String CONTENT="Durch" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Anthoniun" />
+            <String CONTENT="Margairitham" />
+            <String CONTENT="Hebrayischen" />
+            <String CONTENT="Jesz" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="der" />
+            <String CONTENT="Löblichen" />
+            <String CONTENT="Statt" />
+            <String CONTENT="Augspurg" />
+            <String CONTENT="beschlus" />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="ben" />
+            <String CONTENT="vnd" />
+            <String CONTENT="an" />
+            <String CONTENT="tag" />
+            <String CONTENT="gegeben." />
+          </TextLine>
+          <TextLine>
+            <String CONTENT="M." />
+            <String CONTENT="D." />
+            <String CONTENT="XXX." />
+          </TextLine>
+        </TextBlock>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>

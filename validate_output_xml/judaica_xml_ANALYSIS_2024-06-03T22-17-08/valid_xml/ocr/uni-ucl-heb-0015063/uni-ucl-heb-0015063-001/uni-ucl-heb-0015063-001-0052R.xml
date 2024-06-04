@@ -1,0 +1,70 @@
+<alto>
+  <Page>
+    <PrintSpace>
+      <TextBlock>
+        <TextLine>
+          <String CONTENT="REGISTRO."/>
+        </TextLine>
+        <TextLine>
+          <String CONTENT="*"/>
+          <String CONTENT="A"/>
+          <String CONTENT="B"/>
+          <String CONTENT="C"/>
+          <String CONTENT="D"/>
+          <String CONTENT="E"/>
+          <String CONTENT="F"/>
+          <String CONTENT="G"/>
+          <String CONTENT="H"/>
+          <String CONTENT="I"/>
+          <String CONTENT="K"/>
+          <String CONTENT="L"/>
+          <String CONTENT="M"/>
+          <String CONTENT="N"/>
+          <String CONTENT="O"/>
+          <String CONTENT="P"/>
+          <String CONTENT="Q"/>
+        </TextLine>
+        <TextLine>
+          <String CONTENT="R"/>
+          <String CONTENT="S"/>
+          <String CONTENT="T"/>
+          <String CONTENT="V"/>
+          <String CONTENT="X"/>
+          <String CONTENT="Y"/>
+          <String CONTENT="Z"/>
+          <String CONTENT="AA"/>
+          <String CONTENT="BB"/>
+          <String CONTENT="CC"/>
+          <String CONTENT="DD"/>
+          <String CONTENT="EE"/>
+        </TextLine>
+        <TextLine>
+          <String CONTENT="Tutti"/>
+          <String CONTENT="sono"/>
+          <String CONTENT="quaderni."/>
+        </TextLine>
+        <TextLine>
+          <String CONTENT="IN"/>
+          <String CONTENT="VENETIA"/>
+          <String CONTENT="PER"/>
+          <String CONTENT="MICHEL"/>
+        </TextLine>
+        <TextLine>
+          <String CONTENT="TRAMEZINO."/>
+          <String CONTENT="NE"/>
+          <String CONTENT="L'ANNO"/>
+        </TextLine>
+        <TextLine>
+          <String CONTENT="DI"/>
+          <String CONTENT="NOSTRA"/>
+          <String CONTENT="SALVTE."/>
+        </TextLine>
+        <TextLine>
+          <String CONTENT="M."/>
+          <String CONTENT="D."/>
+          <String CONTENT="XLIIII."/>
+        </TextLine>
+      </TextBlock>
+    </PrintSpace>
+  </Page>
+</alto>

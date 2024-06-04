@@ -1,0 +1,448 @@
+
+<alto>
+  <TextBlock>
+    <TextLine>
+      <String CONTENT="DE"/>
+      <String CONTENT="ANTIQVITATIBVS"/>
+      <String CONTENT="TABVAL"/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Liber"/>
+      <String CONTENT="decimus"/>
+      <String CONTENT="quartus."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Quemadmodum"/>
+      <String CONTENT="post"/>
+      <String CONTENT="mortem"/>
+      <String CONTENT="Alexandre"/>
+      <String CONTENT="nouissimus"/>
+      <String CONTENT="eius"/>
+      <String CONTENT="filius"/>
+      <String CONTENT="Aristobolus"/>
+      <String CONTENT="contra"/>
+      <String CONTENT="Hircannum"/>
+      <String CONTENT="fratrem"/>
+      <String CONTENT="pro"/>
+      <String CONTENT="regno"/>
+      <String CONTENT="bellauit."/>
+      <String CONTENT="cap.i."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="De"/>
+      <String CONTENT="antipatre"/>
+      <String CONTENT="patre"/>
+      <String CONTENT="herodis"/>
+      <String CONTENT="iudae"/>
+      <String CONTENT="parte"/>
+      <String CONTENT="Hyrcani"/>
+      <String CONTENT="aduersus"/>
+      <String CONTENT="aristobolum."/>
+      <String CONTENT="cap.ii."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Cãsuscepit"/>
+      <String CONTENT="hyrcanus"/>
+      <String CONTENT="exercitu:&"/>
+      <String CONTENT="contra"/>
+      <String CONTENT="aristobolum"/>
+      <String CONTENT="produxisset:&"/>
+      <String CONTENT="in"/>
+      <String CONTENT="pugna"/>
+      <String CONTENT="vicisset"/>
+      <String CONTENT="ad"/>
+      <String CONTENT="hierosolima"/>
+      <String CONTENT="cum"/>
+      <String CONTENT="persecutus"/>
+      <String CONTENT="est&ibi"/>
+      <String CONTENT="cum"/>
+      <String CONTENT="exercitu"/>
+      <String CONTENT="obsedit"/>
+      <String CONTENT="ciuitatem."/>
+      <String CONTENT="cap.iii."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Qualiter"/>
+      <String CONTENT="Scaurus"/>
+      <String CONTENT="ab"/>
+      <String CONTENT="armenia"/>
+      <String CONTENT="magnus"/>
+      <String CONTENT="Pompeius"/>
+      <String CONTENT="ad"/>
+      <String CONTENT="partes"/>
+      <String CONTENT="Syriæ"/>
+      <String CONTENT="transiuit:&"/>
+      <String CONTENT="ad"/>
+      <String CONTENT="Regem"/>
+      <String CONTENT="inuentas"/>
+      <String CONTENT="Hyrcani"/>
+      <String CONTENT="&"/>
+      <String CONTENT="Aristoboli"/>
+      <String CONTENT="auxilia"/>
+      <String CONTENT="peruenit."/>
+      <String CONTENT="cap.iv."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Quemadmodum"/>
+      <String CONTENT="Aristobolus"/>
+      <String CONTENT="&"/>
+      <String CONTENT="tellexit"/>
+      <String CONTENT="Populi"/>
+      <String CONTENT="confidentiam:"/>
+      <String CONTENT="uidit"/>
+      <String CONTENT="successit:"/>
+      <String CONTENT="aduersus"/>
+      <String CONTENT="quem"/>
+      <String CONTENT="indignatus"/>
+      <String CONTENT="Popæius"/>
+      <String CONTENT="exercitu"/>
+      <String CONTENT="produxit:&"/>
+      <String CONTENT="Aristobolù"/>
+      <String CONTENT="in"/>
+      <String CONTENT="alexãdria"/>
+      <String CONTENT="calletica"/>
+      <String CONTENT="fuga"/>
+      <String CONTENT="cap.v."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Quemadmodum"/>
+      <String CONTENT="aristobolus"/>
+      <String CONTENT="timitans"/>
+      <String CONTENT="Popei"/>
+      <String CONTENT="obsequiut:&"/>
+      <String CONTENT="obediedcit"/>
+      <String CONTENT="arcesciauit&peperit:"/>
+      <String CONTENT="sed"/>
+      <String CONTENT="postea"/>
+      <String CONTENT="penẽtis"/>
+      <String CONTENT="pacẽ"/>
+      <String CONTENT="petens"/>
+      <String CONTENT="occasione"/>
+      <String CONTENT="satus"/>
+      <String CONTENT="in munie"/>
+      <String CONTENT="soluit."/>
+      <String CONTENT="cap.vi."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Qualiter"/>
+      <String CONTENT="irritatus"/>
+      <String CONTENT="pompæius"/>
+      <String CONTENT="aristobolus"/>
+      <String CONTENT="ligauit:&"/>
+      <String CONTENT="offensasous"/>
+      <String CONTENT="ad"/>
+      <String CONTENT="alexandriam"/>
+      <String CONTENT="insoluit."/>
+      <String CONTENT="cap.vii."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="De"/>
+      <String CONTENT="mõdita"/>
+      <String CONTENT="pōpēio&"/>
+      <String CONTENT="religiositas:ga"/>
+      <String CONTENT="nullutans"/>
+      <String CONTENT="paulus"/>
+      <String CONTENT="et"/>
+      <String CONTENT="tangere"/>
+      <String CONTENT="templii"/>
+      <String CONTENT="pecunians"/>
+      <String CONTENT="licec"/>
+      <String CONTENT="multe"/>
+      <String CONTENT="fuisset;&"/>
+      <String CONTENT="aristoboli"/>
+      <String CONTENT="roman"/>
+      <String CONTENT="utinum"/>
+      <String CONTENT="cum"/>
+      <String CONTENT="filiis"/>
+      <String CONTENT="produxis."/>
+      <String CONTENT="cap.viii."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="De"/>
+      <String CONTENT="auroq"/>
+      <String CONTENT="militia"/>
+      <String CONTENT="contra"/>
+      <String CONTENT="uerbi"/>
+      <String CONTENT="eụe"/>
+      <String CONTENT="cungni"/>
+      <String CONTENT="arabii"/>
+      <String CONTENT="abebe"/>
+      <String CONTENT="produxit."/>
+      <String CONTENT="cap.ix."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Quemadmodum"/>
+      <String CONTENT="Aristoboli"/>
+      <String CONTENT="filius"/>
+      <String CONTENT="Alexander"/>
+      <String CONTENT="fugiens"/>
+      <String CONTENT="Pompeiuq"/>
+      <String CONTENT="adu"/>
+      <String CONTENT="Parthorum"/>
+      <String CONTENT="multoc"/>
+      <String CONTENT="exercitui"/>
+      <String CONTENT="congregaret:bohi"/>
+      <String CONTENT="contra"/>
+      <String CONTENT="hyrcan"/>
+      <String CONTENT="&"/>
+      <String CONTENT="antiparum"/>
+      <String CONTENT="produxit."/>
+      <String CONTENT="cap.x."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Quemadmodum"/>
+      <String CONTENT="cum"/>
+      <String CONTENT="flexilext"/>
+      <String CONTENT="Alexandrum"/>
+      <String CONTENT="mater"/>
+      <String CONTENT="suã"/>
+      <String CONTENT="tradere"/>
+      <String CONTENT="eum"/>
+      <String CONTENT="catellasiq&"/>
+
+      <String CONTENT="relinquere"/>
+      <String CONTENT="alexandrum"/>
+      <String CONTENT="dimisit."/>
+      <String CONTENT="cap.xi."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="De"/>
+      <String CONTENT="aristobolu"/>
+      <String CONTENT="qui"/>
+      <String CONTENT="cum"/>
+      <String CONTENT="a"/>
+      <String CONTENT="romana"/>
+      <String CONTENT="ciuitate"/>
+      <String CONTENT="ad"/>
+      <String CONTENT="iudæam"/>
+      <String CONTENT="fugiit:et"/>
+      <String CONTENT="tantusq"/>
+      <String CONTENT="gabinio𐃌"/>
+      <String CONTENT="us"/>
+      <String CONTENT="captiuius"/>
+      <String CONTENT="trãsmissus"/>
+      <String CONTENT="est."/>
+      <String CONTENT="cap.xii."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="De"/>
+      <String CONTENT="crasii"/>
+      <String CONTENT="succesoris"/>
+      <String CONTENT="gabini"/>
+      <String CONTENT="contra"/>
+      <String CONTENT="parthos"/>
+      <String CONTENT="expeditione"/>
+      <String CONTENT="&amp"/>
+      <String CONTENT="ascensus"/>
+      <String CONTENT="ciuis"/>
+      <String CONTENT="in"/>
+      <String CONTENT="iudæam&"/>
+      <String CONTENT="pecuniarum:"/>
+      <String CONTENT="templii"/>
+      <String CONTENT="depopulatione."/>
+      <String CONTENT="cap.xiii."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Vt"/>
+      <String CONTENT="Cæsar"/>
+      <String CONTENT="Aristobolum"/>
+      <String CONTENT="tollere"/>
+      <String CONTENT="cupiens:&amp"/>
+      <String CONTENT="cum"/>
+      <String CONTENT="duobus"/>
+      <String CONTENT="agriminibus"/>
+      <String CONTENT="in"/>
+      <String CONTENT="iudæam"/>
+      <String CONTENT="trans"/>
+      <String CONTENT="smittere&"/>
+      <String CONTENT="pompenaies"/>
+      <String CONTENT="ueno"/>
+      <String CONTENT="necauit&"/>
+      <String CONTENT="."/>
+      <String CONTENT="cap.xiiii."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Qualiter"/>
+      <String CONTENT="cipio"/>
+      <String CONTENT="adexãdrum"/>
+      <String CONTENT="aristoboli"/>
+      <String CONTENT="filium"/>
+      <String CONTENT="focuit"/>
+      <String CONTENT="prosequuti."/>
+      <String CONTENT="cap.xv."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="De"/>
+      <String CONTENT="expeditione"/>
+      <String CONTENT="cæsarisad"/>
+      <String CONTENT="agyptum:&"/>
+      <String CONTENT="qualiter"/>
+      <String CONTENT="admodum"/>
+      <String CONTENT="auxilliis"/>
+      <String CONTENT="e"/>
+      <String CONTENT="Hyrcanus&"/>
+      <String CONTENT="Antipater"/>
+      <String CONTENT="dediditieu&adog."</String/>
+      <String CONTENT="auxiliatores"/>
+      <String CONTENT="e"/>
+      <String CONTENT="fecisse."/>
+      <String CONTENT="cap.xvi."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Quemadmodú"/>
+      <String CONTENT="antipater"/>
+      <String CONTENT="cubicu"/>
+      <String CONTENT="pugnæfastemicitias-cæsaris"/>
+      <String CONTENT="acquisition."/>
+      <String CONTENT="cap.xvii."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Vt"/>
+      <String CONTENT="caesar"/>
+      <String CONTENT="antipatro"/>
+      <String CONTENT="tutelam"/>
+      <String CONTENT="iudae"/>
+      <String CONTENT="cedidit:&"/>
+      <String CONTENT="epistolae"/>
+      <String CONTENT="cum"/>
+      <String CONTENT="senatus"/>
+      <String CONTENT="consilato"/>
+      <String CONTENT="fideliter"/>
+      <String CONTENT="itis"/>
+      <String CONTENT="iudaoru"/>
+      <String CONTENT="directe"/>
+      <String CONTENT="sunt."/>
+      <String CONTENT="cap.xviii."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Qualiter"/>
+      <String CONTENT="aristater"/>
+      <String CONTENT="filius"/>
+      <String CONTENT="fuis"/>
+      <String CONTENT="Hyrcæ&"/>
+      <String CONTENT="&"/>
+      <String CONTENT="herodi"/>
+      <String CONTENT="gubernatione"/>
+      <String CONTENT="habéda"/>
+      <String CONTENT="misit."/>
+      <String CONTENT="cap.xix."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Quemadmodun"/>
+      <String CONTENT="sextus"/>
+      <String CONTENT="cæsar"/>
+      <String CONTENT="cognatus"/>
+      <String CONTENT="magní"/>
+      <String CONTENT="cæsaris"/>
+      <String CONTENT="doneæpicset"/>
+      <String CONTENT="abherode&"/>
+      <String CONTENT="&"/>
+      <String CONTENT="galliae&"/>
+      <String CONTENT="maximum"/>
+      <String CONTENT="cum"/>
+      <String CONTENT="inferioris"/>
+      <String CONTENT="syriæ"/>
+      <String CONTENT="principem"/>
+      <String CONTENT="ordinauit."/>
+      <String CONTENT="cap.xx."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Vt"/>
+      <String CONTENT="cæsari"/>
+      <String CONTENT="desunto"/>
+      <String CONTENT="cæsare"/>
+      <String CONTENT="cum"/>
+      <String CONTENT="contra"/>
+      <String CONTENT="iudæam"/>
+      <String CONTENT="ascenderit&"/>
+      <String CONTENT="&"/>
+      <String CONTENT="prouncia"/>
+      <String CONTENT="deuastataq&"/>
+      <String CONTENT="ffeingnta"/>
+      <String CONTENT="talenta"/>
+      <String CONTENT="ab"/>
+      <String CONTENT="elis"/>
+      <String CONTENT="exegit&"/>
+      <String CONTENT="qualiter"/>
+      <String CONTENT="Herodes"/>
+      <String CONTENT="pecuniatun"/>
+      <String CONTENT="calisto"/>
+      <String CONTENT="fui"/>
+      <String CONTENT="diosius"/>
+      <String CONTENT="aparuilset:&amp"/>
+      <String CONTENT="mores"/>
+      <String CONTENT="Malchiqui"/>
+      <String CONTENT="contra"/>
+      <String CONTENT="Herodem"/>
+      <String CONTENT="teditione"/>
+      <String CONTENT="excivati."/>
+      <String CONTENT="cap.xxi."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="De"/>
+      <String CONTENT="morte"/>
+      <String CONTENT="legatorum"/>
+      <String CONTENT="iudæ:&"/>
+      <String CONTENT="A"/>
+      <String CONTENT="Antonium"/>
+      <String CONTENT="post"/>
+      <String CONTENT="fustorian"/>
+      <String CONTENT="mæcdoncam&in"/>
+      <String CONTENT="syman&"/>
+      <String CONTENT="ueni&ligneindignantum"/>
+      <String CONTENT="incunurent;&"/>
+      <String CONTENT="qherodem"/>
+      <String CONTENT="accusarem."/>
+      <String CONTENT="cap.xxii."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="De"/>
+      <String CONTENT="expeditione"/>
+      <String CONTENT="Parthorum"/>
+      <String CONTENT="contra"/>
+      <String CONTENT="Syriam:&"/>
+      <String CONTENT="per"/>
+      <String CONTENT="quam"/>
+      <String CONTENT="Aristoboli"/>
+      <String CONTENT="filius"/>
+      <String CONTENT="Antigonus"/>
+      <String CONTENT="regno"/>
+      <String CONTENT="restituitur."/>
+      <String CONTENT="cap.xxii."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="Quemadmodum"/>
+      <String CONTENT="Herodes"/>
+      <String CONTENT="cum"/>
+      <String CONTENT="romam"/>
+      <String CONTENT="uenisset:multasq"/>
+      <String CONTENT="pecuniens."/>
+      <String CONTENT="promisitet:&"/>
+      <String CONTENT="a"/>
+      <String CONTENT="senatu"/>
+      <String CONTENT="uel"/>
+      <String CONTENT="Cæsare"/>
+      <String CONTENT="rex"/>
+      <String CONTENT="iudææ"/>
+      <String CONTENT="pronunciatus"/>
+      <String CONTENT="est."/>
+      <String CONTENT="cap.xxiii."/>
+    </TextLine>
+    <TextLine>
+      <String CONTENT="De"/>
+      <String CONTENT="anugio"/>
+      <String CONTENT="Herodis"/>
+      <String CONTENT="ab"/>
+      <String CONTENT="Italia"/>
+      <String CONTENT="in"/>
+      <String CONTENT="iudæam&"/>
+      <String CONTENT="pugnag"/>
+      <String CONTENT="cotra"/>
+      <String CONTENT="Antigonum:militatioque"/>
+      <String CONTENT="romaná&"/>
+      <String CONTENT="Sylano"/>
+      <String CONTENT="ducæ."/>
+      <String CONTENT="cap.xxy."/>
+    </TextLine>
+  </TextBlock>
+</alto>

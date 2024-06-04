@@ -1,0 +1,58 @@
+<alto>
+  <Layout>
+    <Page>
+      <PrintSpace>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="FLAVII"/>
+            <String CONTENT="IOSEPHI"/>
+          </TextLine>
+          <TextLine>
+            <String CONTENT="OPERUM"/>
+            <String CONTENT="TO-"/>
+          </TextLine>
+          <TextLine>
+            <String CONTENT="MUS"/>
+            <String CONTENT="PRI-"/>
+          </TextLine>
+          <TextLine>
+            <String CONTENT="MUS"/>
+          </TextLine>
+          <TextLine>
+            <String CONTENT="*"/>
+          </TextLine>
+          <TextLine>
+            <String CONTENT="Decem"/>
+            <String CONTENT="priores"/>
+            <String CONTENT="Antiquitatum"/>
+            <String CONTENT="Iudai-"/>
+          </TextLine>
+          <TextLine>
+            <String CONTENT="carum"/>
+            <String CONTENT="libros"/>
+            <String CONTENT="complectens."/>
+          </TextLine>
+          <TextLine>
+            <String CONTENT="SIGISMUNDO"/>
+            <String CONTENT="GELENIO"/>
+          </TextLine>
+          <TextLine>
+            <String CONTENT="INTERPRETE."/>
+          </TextLine>
+          <TextLine>
+            <String CONTENT="APVD"/>
+            <String CONTENT="SEB."/>
+            <String CONTENT="GRY-"/>
+          </TextLine>
+          <TextLine>
+            <String CONTENT="PHIVM"/>
+            <String CONTENT="LVDVN."/>
+          </TextLine>
+          <TextLine>
+            <String CONTENT="1555."/>
+          </TextLine>
+        </TextBlock>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>

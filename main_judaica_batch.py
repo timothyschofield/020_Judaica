@@ -9,9 +9,7 @@ import openai
 from openai import OpenAI
 from db import OPENAI_API_KEY
 
-
-# from many_word_on_line_urls import URL_PATH_LIST
-# from generates_invalid_xml import URL_PATH_LIST
+# from urls_generates_invalid_xml import URL_PATH_LIST
 from urls_judaica_batch1 import URL_PATH_LIST
 
 from helper_functions_judaica import encode_image, get_file_timestamp, is_json, create_and_save_dataframe, make_payload
@@ -31,12 +29,11 @@ try:
   client = OpenAI(api_key=my_api_key)
 except Exception as ex:
     print("Exception:", ex)
-    exit()
+  
 
 
 
-
-MODEL = "gpt-4-vision-preview" # 4096 - I've tested it
+# MODEL = "gpt-4-vision-preview" # 4096 - I've tested it
 MODEL = "gpt-4o"   # max_tokens 4096
 
 
@@ -74,28 +71,45 @@ prompt = (
         f"OCR this document and extract the text and make into ALTO XML"
         f"The text is in a mixture of Gothic German, Latin and Hebrew"
         f"For String tags only include the CONTENT attribute"  
-           
         f"Words in a line should be contained within a TextLine tag"
         f"Each word in a TextLine should be contained within a seperate String tag"
-          
         f"If you can find no text return '<alto> <!-- No text --> </alto>'"
         f"Return only the text do not make comments"
         f"Do not wrap the returned text with backticks"
 )
-# ensure all XML elements are properly closed and nested.
+
+prompt = (
+        f"OCR this document and extract the text and make into ALTO XML"
+        f"The text is in a mixture of Gothic German, Latin and Hebrew"
+        f"For String tags only include the CONTENT attribute"  
+        f"Words in a line should be contained within a TextLine tag"
+        f"Each word in a TextLine should be contained within a seperate String tag"
+        
+        f"Ensure all XML elements are properly closed and nested"
+        f"Ampersand ('&') must be replaced with &amp;"
+        f"String tags must be terminated by '/>'"
+        f"String CONTENT must be surrounded by matching quotes"
+        
+        f"If you can find no text return '<alto> <!-- No text --> </alto>'"
+        f"Return only the text do not make comments"
+        f"Do not wrap the returned text with backticks"
+)
+
+judaica_input_folder = "judaica_input"
+judaica_output_folder = "judaica_output"
+project_name = "Judaica"
 
 source_type = "url" # url or local
 count = 0
-project_name = "Judaica"
+
 batch_size = 20 # saves every batch_size
 time_stamp = get_file_timestamp()
 experiment = "full"
 
-
 if source_type == "url":
   image_path_list = URL_PATH_LIST
 else:
-  image_folder = Path("input_gpt/")
+  image_folder = Path(f"{judaica_input_folder}/")
   image_path_list = list(image_folder.glob("*.jpg"))
 
 output_list = []
@@ -109,7 +123,7 @@ headers = {
 print("####################################### START OUTPUT ######################################")
 try:
   
-  for image_path in image_path_list:
+  for image_path in image_path_list[:2]:
 
     error_message = "OK"
 
@@ -117,8 +131,6 @@ try:
     count+=1
     print(f"count: {count}")
 
-    # image_path = "input_gpt/uni-ucl-heb-0015052-001-0011L.jpg"
-    
     # "url" or "local"
     if source_type == "url":
       url_request = image_path
@@ -191,13 +203,13 @@ try:
     
     if count % batch_size == 0:
       print(f"WRITING BATCH:{count}")  
-      output_path_name = f"output_gpt/{project_name}_{time_stamp}_{experiment}_{count}.csv"
+      output_path_name = f"{judaica_output_folder}/{project_name}_{time_stamp}_{experiment}_{count}.csv"
       create_and_save_dataframe(output_list=output_list, key_list_with_logging=[], output_path_name=output_path_name)
     
   #################################### eo for loop
 
   print(f"WRITING BATCH:{count}")  
-  output_path_name = f"output_gpt/{project_name}_{time_stamp}_{experiment}_{count}.csv"
+  output_path_name = f"{judaica_output_folder}/{project_name}_{time_stamp}_{experiment}_{count}.csv"
   create_and_save_dataframe(output_list=output_list, key_list_with_logging=[], output_path_name=output_path_name)
  
 

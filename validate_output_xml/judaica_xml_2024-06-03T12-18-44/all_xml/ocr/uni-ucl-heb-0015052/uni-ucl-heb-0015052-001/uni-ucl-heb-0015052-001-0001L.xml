@@ -1,0 +1,15 @@
+<alto>
+  <Layout>
+    <Page>
+      <PrintSpace>
+        <TextBlock>
+          <TextLine>
+            <String CONTENT="SR"/>
+            <String CONTENT="MOCATTA"/>
+            <String CONTENT="1530.M1"/>
+          </TextLine>
+        </TextBlock>
+      </PrintSpace>
+    </Page>
+  </Layout>
+</alto>

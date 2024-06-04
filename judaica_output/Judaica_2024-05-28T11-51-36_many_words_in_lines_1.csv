@@ -1,0 +1,80 @@
+source,error,ocr content,finish_reason,usage
+https://lrfhec.maxcommunications.co.uk/LRF/JUDAICA/IMAGES/uni-ucl-heb-0015052/uni-ucl-heb-0015052-001/uni-ucl-heb-0015052-001-0004R.jpg,OK,"<alto>
+    <TextLine>
+        <String CONTENT=""Der""/>
+        <String CONTENT=""gantz""/>
+        <String CONTENT=""Jüdisch""/>
+        <String CONTENT=""glaub""/>
+    </TextLine>
+    <TextLine>
+        <String CONTENT=""mit""/>
+        <String CONTENT=""sampt""/>
+        <String CONTENT=""ainer""/>
+        <String CONTENT=""gründtlichen""/>
+        <String CONTENT=""vnd""/>
+    </TextLine>
+    <TextLine>
+        <String CONTENT=""warhafften""/>
+        <String CONTENT=""anzaygungc""/>
+        <String CONTENT=""Aller""/>
+        <String CONTENT=""Sazungen""/>
+        <String CONTENT=""Ceremonien""/>
+    </TextLine>
+    <TextLine>
+        <String CONTENT=""Gesezzen""/>
+        <String CONTENT=""haymlîche""/>
+        <String CONTENT=""vnd""/>
+        <String CONTENT=""öffentliche""/>
+    </TextLine>
+    <TextLine>
+        <String CONTENT=""Gebreycch""/>
+        <String CONTENT=""deren""/>
+        <String CONTENT=""sich""/>
+        <String CONTENT=""dyc""/>
+        <String CONTENT=""Juden""/>
+    </TextLine>
+    <TextLine>
+        <String CONTENT=""halten""/>
+        <String CONTENT=""Durch""/>
+        <String CONTENT=""das""/>
+        <String CONTENT=""ganz""/>
+        <String CONTENT=""Jar""/>
+    </TextLine>
+    <TextLine>
+        <String CONTENT=""Mit""/>
+        <String CONTENT=""beschönen""/>
+        <String CONTENT=""vnd""/>
+        <String CONTENT=""gegründten""/>
+        <String CONTENT=""Argumenten""/>
+    </TextLine>
+    <TextLine>
+        <String CONTENT=""wider""/>
+        <String CONTENT=""jren""/>
+        <String CONTENT=""Glawben""/>
+    </TextLine>
+    <TextLine>
+        <String CONTENT=""Durch""/>
+        <String CONTENT=""Anthonium""/>
+        <String CONTENT=""Margaritham""/>
+        <String CONTENT=""Hebrayischen""/>
+        <String CONTENT=""Lessr""/>
+    </TextLine>
+    <TextLine>
+        <String CONTENT=""der""/>
+        <String CONTENT=""Loblichen""/>
+        <String CONTENT=""Statt""/>
+        <String CONTENT=""Augspurg""/>
+    </TextLine>
+    <TextLine>
+        <String CONTENT=""beschribcn""/>
+        <String CONTENT=""vnd""/>
+        <String CONTENT=""an""/>
+        <String CONTENT=""tag""/>
+        <String CONTENT=""gegeben""/>
+    </TextLine>
+    <TextLine>
+        <String CONTENT=""M.""/>
+        <String CONTENT=""D.""/>
+        <String CONTENT=""XXX.""/>
+    </TextLine>
+</alto>",stop,"{'prompt_tokens': 1206, 'completion_tokens': 560, 'total_tokens': 1766}"
