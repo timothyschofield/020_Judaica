@@ -94,7 +94,7 @@ prompt = (
         f"Return only the text do not make comments"
         f"Do not wrap the returned text with backticks"
 )
-
+ 
 judaica_input_folder = "judaica_input"
 judaica_output_folder = "judaica_output"
 project_name = "Judaica"
