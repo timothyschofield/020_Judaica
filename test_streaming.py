@@ -5,6 +5,8 @@ Tim Schofield
 08 November 2023
     
 Intersting but no cigar
+Each streamed item is a token and the total number of tokens 
+streamed still has to be small that max_tokens
 
 """
 import os
