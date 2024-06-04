@@ -1,10 +1,10 @@
 ﻿__pycache__/
 _00_Judaica_Notes/
 back/
-input_gpt/
+judaica_input/
+judaica_output/
 metadata_input/
 metadata_output/
-output_gpt/
-output_xml_folders/
+validate_input_csv/
+validate_output_xml/
 db.py
-judaica_urls_batch1.py
