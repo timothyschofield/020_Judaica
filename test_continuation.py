@@ -18,7 +18,7 @@ MODEL = "gpt-4o"
 my_api_key = OPENAI_API_KEY
 client = OpenAI(api_key=my_api_key)   # openai version 1.2.3
 
-try:
+try: 
 
     prompt = "Please read this text and return everything you can. Just return what you see, do not make comments"
     
