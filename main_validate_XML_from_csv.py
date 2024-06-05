@@ -1,10 +1,12 @@
 """
-File : main_postprocess_from_csv.py
+File : main_validate_XML_from_csv.py
 
 Author: Tim Schofield
 Date: 28 May 2024
 
-Takes the csv output of the main_judaica_batch and seperates it into three folders
+This starts with ChatGPT having been asked to generate ALTO XML from OCR
+
+Takes the csv XML output of the main_judaica_batch and seperates it into three folders
 in seperate xml files
 all_xml
 valid_xml
@@ -26,8 +28,8 @@ from helper_functions_judaica import validate_xml, get_file_timestamp
 FILE_NAME = "Judaica_FULL_RUN_2024-06-03T19-03-08_full_278.csv"
 
 
-input_folder = Path("validate_input_csv")
-output_folder = Path(f"validate_output_xml/judaica_xml_ANALYSIS_{get_file_timestamp()}")
+input_folder = Path("validate_XML_input_csv")
+output_folder = Path(f"validate_XML_output/judaica_xml_ANALYSIS_{get_file_timestamp()}")
  
 df = pd.read_csv(input_folder / FILE_NAME)
 
@@ -46,7 +48,7 @@ for index, row in df.iterrows():
     url = row["source"]
     #print(f"****{url}****")
     
-    if url == "none": 
+    if url == "none":  # why?
         continue
 
     url_list = url.split("/")
@@ -105,7 +107,7 @@ for index, row in df.iterrows():
         log_invalid.append(this_invalid)
 
 log_df = pd.DataFrame(log_invalid)
-log_path = Path(f"{output_folder}/invalid_log_{get_file_timestamp()}.csv")
+log_path = Path(f"{output_folder}/invalid_XML_log_{get_file_timestamp()}.csv")
 with open(log_path, "w") as f:
     log_df.to_csv(f, index=False)
 

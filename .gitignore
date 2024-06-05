@@ -5,6 +5,8 @@ judaica_input/
 judaica_output/
 metadata_input/
 metadata_output/
-validate_input_csv/
-validate_output_xml/
+validate_JSON_input_csv/
+validate_JSON_output/
+validate_XML_input_csv/
+validate_XML_output/
 db.py

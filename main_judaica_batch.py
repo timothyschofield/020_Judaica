@@ -78,6 +78,7 @@ prompt = (
         f"Do not wrap the returned text with backticks"
 )
 
+################################# XML
 prompt = (
         f"OCR this document and extract the text and make into ALTO XML"
         f"The text is in a mixture of Gothic German, Latin and Hebrew"
@@ -94,17 +95,43 @@ prompt = (
         f"Return only the text do not make comments"
         f"Do not wrap the returned text with backticks"
 )
+
+
+############################### JSON
+prompt = (
+          f"OCR this document and extract the text and make into ALTO JSON"
+          f"The text is in a mixture of Gothic German, Latin and Hebrew"
+          f"Do not return OCRProcessing infomation"
+          f"Do not return HPOS VPOS WIDTH or HEIGHT information"
+          f"One word per Content attribute"
+          f"If you can find no text return {{'alto' :'No text'}}"
+          f"Return only the text do not make comments"
+)
+
+prompt = (
+          f'OCR this document and extract the text and make into ALTO JSON'
+          f'The text is in a mixture of Gothic German, Latin and Hebrew'
+
+          f'Generate a valid ALTO JSON object with the following structure: {{ "Page": {{ "Page": {{ "ID": "1", "Width": 2000, "Height": 3000, "PrintSpace": {{ "Height": 2800, "Width": 1800, "TopMargin": 100, "LeftMargin": 100 }}, "TextBlock": [{{ "ID": "TB1", "HPOS": 100, "VPOS": 100, "WIDTH": 1800, "HEIGHT": 400, "TextLine": [{{ "ID": "TL1", "Text": "Sample text line 1", "HPOS": 100, "VPOS": 100, "WIDTH": 1800, "HEIGHT": 50 }}, {{ "ID": "TL2", "Text": "Sample text line 2", "HPOS": 100, "VPOS": 150, "WIDTH": 1800, "HEIGHT": 50 }}] }}] }} }}'
+
+          f'If you can find no text return {{"alto" :"No text"}}'
+          f'Return only the text do not make comments'
+)
+
+
+
+
  
 judaica_input_folder = "judaica_input"
 judaica_output_folder = "judaica_output"
-project_name = "Judaica"
+project_name = "Judaica_ALTO_JSON"
 
 source_type = "url" # url or local
 count = 0
 
 batch_size = 20 # saves every batch_size
 time_stamp = get_file_timestamp()
-experiment = "full"
+experiment = "ALTO_JSON"
 
 if source_type == "url":
   image_path_list = URL_PATH_LIST
@@ -123,7 +150,7 @@ headers = {
 print("####################################### START OUTPUT ######################################")
 try:
   
-  for image_path in image_path_list[:2]:
+  for image_path in image_path_list[:50]:
 
     error_message = "OK"
 
