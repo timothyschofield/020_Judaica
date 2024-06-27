@@ -4,13 +4,18 @@ File : main_validate_XML_from_csv.py
 Author: Tim Schofield
 Date: 28 May 2024
 
-This starts with ChatGPT having been asked to generate ALTO XML from OCR
+This starts with ChatGPT having generated ALTO XML from OCR in a single csv file - one line is one XML file
+validate_XML_input_csv/Judaica_FULL_RUN_2024-06-03T19-03-08_full_278.csv (copied from the judaica_output folder)
 
-Takes the csv XML output of the main_judaica_batch and seperates it into three folders
-in seperate xml files
+The output is one XML file for each line in the input CSV
+The XML is validated by this program and copied to the appropriate output folder:
+seperate xml files
 all_xml
 valid_xml
 invalid_xml
+
+This is NOT the same folder structure as created by main_metadata.py
+
 
 """
 from pathlib import Path 

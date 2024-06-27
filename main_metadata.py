@@ -4,6 +4,11 @@ File : main_metadata.py
 Author: Tim Schofield
 Date: 30 May 2024
 
+Take as input one csv from "metadata_input/METADATA - Proquest UCL - Judaica Batch 1 (C260_0003) - BENCHMARK"
+Outputs to metadata_output a folder structure with XML metadata files from the input csv file.
+Note: this does not create or do anything about the actual ALTO XML OCR files
+
+
 # I don't have authenication for a Max account
 sheet_url = "https://docs.google.com/spreadsheets/d/1hmvDZgrYD2JA6NuI7lkSXwx7EzK_ENyDf5sDFmtNQlo/edit#gid=0"
 csv_export_url = sheet_url.replace('/edit#gid=', '/export?format=csv&gid=')

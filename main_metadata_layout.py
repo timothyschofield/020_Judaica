@@ -1,3 +1,10 @@
+"""
+
+A helper file for main_metadata.py
+Helps with the XML layout
+
+"""
+
 from pathlib import Path 
 import math
 

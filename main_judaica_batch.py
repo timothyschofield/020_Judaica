@@ -4,6 +4,10 @@ File : main_judaica_batch.py
 Author: Tim Schofield
 Date: 23 May 2024
 
+Does the OCR on the jpgs at URL_PATH_LIST - this list was got from the ImageURLLink column of "METADATA - Proquest UCL - Judaica Batch 1 (C260_0003) - BENCHMARK"
+Might be an idea to get it directly not for URL_PATH_LIST
+Outputs a single csv to judaica_output, each line containing the ALTO XML
+
 """
 import openai
 from openai import OpenAI
@@ -34,6 +38,7 @@ except Exception as ex:
 
 
 # MODEL = "gpt-4-vision-preview" # 4096 - I've tested it
+# MODEL = "gpt-4-turbo"  # Context window of 128k max_tokens 4096
 MODEL = "gpt-4o"   # max_tokens 4096
 
 
@@ -120,8 +125,17 @@ prompt = (
 
 
 
+# Do it this way? not sure
+prompt = """
+    
+    OCR this document and extract the text and make into ALTO JSON
+    If you can find no text return {"alto" :"No text"}
+  
+    The text is in a mixture of Gothic German, Latin and Hebrew
 
- 
+"""
+
+
 judaica_input_folder = "judaica_input"
 judaica_output_folder = "judaica_output"
 project_name = "Judaica_ALTO_JSON"
@@ -178,7 +192,7 @@ try:
         break
     ###### eo try requests three times
     
-    ocr_dict = ocr_output.json()  # Turns JSON string into Python dict
+    ocr_dict = ocr_output.json()  # Turns JSON string into Python dict 
 
     
     
