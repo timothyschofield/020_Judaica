@@ -18,7 +18,7 @@ print(pd)
 
 Required file hierachy
 
-uni-ucl-heb-0015052                             <<<<< this the book level
+uni-ucl-heb-0015052                             <<<<< this the book or volume level
     
     uni-ucl-heb-0015052-000                     <<<<< this item folder contains no XML but there is an ocr folder
         ocr
@@ -90,7 +90,7 @@ for index, row in df.iterrows():
     # uni-ucl-heb-0015052-000-0000B.jpg image_name
     # uni-ucl-heb-0015052-000-0000B     file_name
     # uni-ucl-heb-0015052-000           item_name
-    # uni-ucl-heb-0015052               book_name
+    # uni-ucl-heb-0015052               book_name / volume_name
     
     image_name = row["Image name"]                  
     file_name = Path(image_name).stem         
