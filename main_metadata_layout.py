@@ -123,7 +123,8 @@ def get_front_tags(item_name):
     <startdate>{Year of Publication}</startdate>
     <enddate>{Year of Publication}</enddate>
     <displaydate>{extract the year}</displaydate>
-
+    <source_library>University College London</source_library> 
+    <source_collection>Special Collections, UCL Library</source_collection>
 
 
 """

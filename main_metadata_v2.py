@@ -37,7 +37,6 @@
              
         ... 
 
-
 """
 from pathlib import Path 
 import numpy as np
@@ -46,16 +45,19 @@ import pandas as pd
 import os
 from helper_functions_judaica import get_file_timestamp
 
+from Book import Book
+
+
 class App:
     def __init__(self, input_path, output_path):
         self.input_path = input_path
         self.output_path = output_path
         self.df_metadata = None
         
-        #self.is_first_book = True
         self.old_book_name = None
-        self.this_book_name = None
-        self.books = dict()
+        self.current_book_name = None
+        self.current_book = None
+        self.books = dict() # A dictionary of Books indexed by the Book's name
         
         if os.path.exists(self.input_path) != True:
             print(f"ERROR: {self.input_path} file does not exits")
@@ -68,16 +70,24 @@ class App:
         # Iterate through the metadata csv
         # And create a structured representation of the csv
         for index, row in self.df_metadata.iloc[0:].iterrows(): 
-            
-            self.this_book_name = self.get_book_name(row)
-            
-            if self.this_book_name != self.old_book_name:
-                print(f"{self.this_book_name}")
-                self.old_book_name = self.this_book_name
-            
-            
-            
+            self.update(index, row)
 
+    """
+    """        
+    def update(self, index, row):        
+
+        this_book_name = self.get_book_name(row)
+        
+        if this_book_name != self.current_book_name:
+            self.old_book_name = self.current_book_name
+            self.current_book_name = this_book_name
+            
+            self.current_book = Book(index, row, self.current_book_name)
+            self.books[self.current_book_name] = self.current_book
+            # print(f"Number of books: {len(self.books)}")
+        else:
+            self.current_book.update(index, row)
+            
 
     """
     """
