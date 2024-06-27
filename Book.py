@@ -43,15 +43,18 @@ class Book:
             # A new Item for the items list
             if self.is_nisc:
                 self.nisc_data = NISC(index, row, self.current_item_name)
+                self.nisc_data.update(index, row)
             else:
                 self.current_item = Item(index, row, self.current_item_name)
                 self.items[self.current_item_name] = self.current_item
+                self.current_item.update(index, row)
                 # print(f"Number of items: {len(self.items)}")  
         else:
-            pass  
+            if self.is_nisc:  
+                self.nisc_data.update(index, row)
+            else:
+                self.current_item.update(index, row)
 
-        
-        
         
     def get_item_name(self, row):
         image_name = row["Image name"]                  

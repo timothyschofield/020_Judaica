@@ -46,7 +46,6 @@ from helper_functions_judaica import get_file_timestamp
 
 from Book import Book
 
-
 class App:
     def __init__(self, input_path, output_path):
         self.input_path = input_path
@@ -83,6 +82,7 @@ class App:
             
             self.current_book = Book(index, row, self.current_book_name)
             self.books[self.current_book_name] = self.current_book
+            self.current_book.update(index, row)
             # print(f"Number of books: {len(self.books)}")
         else:
             self.current_book.update(index, row)

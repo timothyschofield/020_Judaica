@@ -13,14 +13,22 @@
     Both these parts are of variable length - including, in some cases, zero length
     
 """
-
+from pathlib import Path
+# The irst row is eaten by the init and subsequent rows are processed by update
+# Call update at end of init
+# Like wise for Book - we are missing the first row because the Book init is eating it
 class NISC:
-    def __init__(self, index, row, name):
+    def __init__(self, index, row, item_name):
         self.index = index
         self.row = row
-        self.name = name
-        print(f"\tNew NISC data: {self.name}")
+        self.item_name = item_name
+        
+        self.image_name = Path(self.row["Image name"]).stem
+        print(f"\tNew NISC data: {self.item_name}")
+        print(f"\t\t{self.image_name}")
         
     def update(self, index, row):
         self.index = index
         self.row = row
+        self.image_name = Path(self.row["Image name"]).stem
+        print(f"\t\t{self.image_name}")
