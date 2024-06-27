@@ -108,11 +108,25 @@ def get_page_line(this_row, index, book_index):
 
 
 ####################################################################
+"""
+
+"""
 def get_front_tags(item_name):
     front_tags = f"<rec>\n\n<itemid>{item_name}</itemid>\n\n<subscription>\n\t<unit>unpublished</unit>\n\t<country>uni</country>\n</subscription>\n\n<itemimagefiles>\n"
     return front_tags
 
+"""
+    use item_name as index into rec_data.csv
+    https://docs.google.com/spreadsheets/d/1hmBUjLONWi2XRhz45K3lJuNRNXr3IPJR/edit?gid=2000716270#gid=2000716270
+    <title>{Title}</title>
+    <author_name>{Author}</author_name>
+    <startdate>{Year of Publication}</startdate>
+    <enddate>{Year of Publication}</enddate>
+    <displaydate>{extract the year}</displaydate>
 
+
+
+"""
 def get_back_tags(item_name):
     back_tags = (   f"</itemimagefiles>\n\n<rec_search>\n<pqid>{item_name}</pqid>\n"
                     f"<title>unknown</title>\n"
@@ -127,7 +141,25 @@ def get_back_tags(item_name):
                     f"\t<illustration>Illuminated lettering</illustration>\n"
                     f"\t<illustration>Illustrated page borders</illustration>\n"
                     f"</illustrations>\n"
-                    f"\n</rec_search>\n\n</rec>"
+                    f"\n</rec_search>\n\n"
+                    
+                    f"<linksec>\n"
+                    
+                    f"<link>\n"
+                    f"\t<linktitle>Title here</linktitle>\n"
+                    f"\t<linkid>Link ID here</linkid>\n"
+                    f"</link>\n"
+                    
+                    f"<link>\n"
+                    f"\t<linktitle>Title here</linktitle>\n"
+                    f"\t<linkid>Link ID here</linkid>\n"
+                    f"</link>\n"
+                    
+                    f"</linksec>\n"
+                    
+                    
+                    f"\n</rec>"
+        
                     )
     
     return back_tags
