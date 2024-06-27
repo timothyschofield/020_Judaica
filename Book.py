@@ -7,6 +7,9 @@
 """
 from pathlib import Path
 
+from NISC import NISC
+from Item import Item
+
 class Book:
     def __init__(self, index, row, name):
         self.index = index
@@ -18,8 +21,9 @@ class Book:
         self.current_item_name = None
         self.current_item = None
         self.items = dict() # A dictionary of Items indexed by the Item's name
-        self.is_nisc = False
         
+        self.is_nisc = False
+        self.nisc_data = None
         
     def update(self, index, row):
         self.index = index
@@ -38,12 +42,11 @@ class Book:
             # Create either a new NISC instance for this Book or
             # A new Item for the items list
             if self.is_nisc:
-                print(f"\tNew NISC data: {self.current_item_name}")
+                self.nisc_data = NISC(index, row, self.current_item_name)
             else:
-                print(f"\tNew Item: {self.current_item_name}")
-                
-                
-                     
+                self.current_item = Item(index, row, self.current_item_name)
+                self.items[self.current_item_name] = self.current_item
+                # print(f"Number of items: {len(self.items)}")  
         else:
             pass  
 

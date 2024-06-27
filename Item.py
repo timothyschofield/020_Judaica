@@ -1,6 +1,8 @@
 """
     Item.py
 
+    Contains information of on the regualr (non NISC) pages of a Book
+
 """
 
 class Item:
@@ -8,7 +10,7 @@ class Item:
         self.index = index
         self.row = row
         self.name = name
-        print(f"New Item: {self.name}")
+        print(f"\tNew Item: {self.name}")
         
     def update(self, index, row):
         self.index = index

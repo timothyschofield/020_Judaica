@@ -3,12 +3,11 @@
     Author: Tim Schofield
     Date: 27 June 2024   
     
-    
-    This uses a double scan - first collect the data from the input speadsheet and structure it.
-    Once it is structured you can go through it and write out the metedata xml in a sensible fashion.
+    This uses a double scan - first we collect the data from the input speadsheet and in a hierachical data structure of Books, Items, NISCs and Pages.
+    Once we have the structured data we can go through it and write out the metadata xml in a sensible fashion.
 
-    This is specificaly required to address the problem of linked data, where items in a volumn need to know about one another's existance.
-    A single scan is no good for this, because the earlyer items in a volumne do not know about later items because the data has not been captured yet.
+    This is specificaly required to address the problem of linked data, where items in a book/volume need to know about one another's existance.
+    A single scan is no good for this, because the earlyer items in a book/volume do not know about later items because the data has not been collected yet.
 
     OOPs approch required
 
@@ -33,7 +32,7 @@
          uni-ucl-jud-0015052-002                    <<<<<<< sceond item in Volume
             uni-ucl-jud-0015052-002.xml             <<<<< this is the metadata file for item 002
             
-            ect.
+            etc.
              
         ... 
 
