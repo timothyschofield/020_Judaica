@@ -50,7 +50,7 @@ from main_metadata_layout import get_nsic_line, get_page_line, get_front_tags, g
 import requests
 
 # Read spreadsheet from sheet downloaded from Google drive
-metadata_input = Path(f"metadata_input/METADATA - Proquest UCL - Judaica Batch 1 (C260_0003) - BENCHMARK.csv")
+# metadata_input = Path(f"metadata_input/METADATA - Proquest UCL - Judaica Batch 1 (C260_0003) - BENCHMARK.csv")
 metadata_input = Path(f"metadata_input/Illustration METADATA - Proquest UCL - Judaica Batch 1 (C260_0003) - BENCHMARK.csv")
 
 if os.path.exists(metadata_input) != True:
@@ -59,6 +59,16 @@ if os.path.exists(metadata_input) != True:
 
 df = pd.read_csv(metadata_input)
 # print(df)
+
+metadata_rec_search__input = Path(f"metadata_input/_rec search_ METADATA - Proquest UCL - Judaica Batch 1 (C260_0003) - Benchmark.csv")
+
+if os.path.exists(metadata_rec_search__input) != True:
+    print(f"ERROR: {metadata_rec_search__input} file does not exits")
+    exit()
+
+df_rec_search = pd.read_csv(metadata_rec_search__input)
+df_rec_search.set_index("Item name", inplace=True)
+
 
 metadata_output = Path(f"metadata_output/judaica_xml_{get_file_timestamp()}")
 
@@ -149,8 +159,8 @@ for index, row in df.iterrows():
                     print(f"{file_to_write=}")
                     
                     items_on_lines = '\n'.join(item_data)
-                    front_tags = get_front_tags(old_item_name)  
-                    back_tags = get_back_tags(old_item_name)  
+                    front_tags = get_front_tags(old_item_name, df_rec_search)  
+                    back_tags = get_back_tags(old_item_name, df_rec_search)  
 
                     items_on_lines = f"{front_tags}{items_on_lines}{back_tags}"
                     
@@ -184,8 +194,8 @@ file_to_write = f"{old_item_path}/{old_item_name}.xml"
 print(f"{file_to_write=}")
 
 items_on_lines = '\n'.join(item_data)
-front_tags = get_front_tags(item_name)
-back_tags = get_back_tags(item_name)
+front_tags = get_front_tags(item_name, df_rec_search)
+back_tags = get_back_tags(item_name, df_rec_search)
 
 items_on_lines = f"{front_tags}{items_on_lines}{back_tags}"
 

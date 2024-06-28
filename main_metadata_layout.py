@@ -111,33 +111,57 @@ def get_page_line(this_row, index, book_index):
 """
 
 """
-def get_front_tags(item_name):
+def get_front_tags(item_name, df_rec_search):
     front_tags = f"<rec>\n\n<itemid>{item_name}</itemid>\n\n<subscription>\n\t<unit>unpublished</unit>\n\t<country>uni</country>\n</subscription>\n\n<itemimagefiles>\n"
     return front_tags
 
 """
     use item_name as index into rec_data.csv
     https://docs.google.com/spreadsheets/d/1hmBUjLONWi2XRhz45K3lJuNRNXr3IPJR/edit?gid=2000716270#gid=2000716270
-    <title>{Title}</title>
-    <author_name>{Author}</author_name>
-    <startdate>{Year of Publication}</startdate>
-    <enddate>{Year of Publication}</enddate>
-    <displaydate>{extract the year}</displaydate>
-    <source_library>University College London</source_library> 
-    <source_collection>Special Collections, UCL Library</source_collection>
-
 
 """
-def get_back_tags(item_name):
-    back_tags = (   f"</itemimagefiles>\n\n<rec_search>\n<pqid>{item_name}</pqid>\n"
-                    f"<title>unknown</title>\n"
-                    f"<author_main>\n\t<author_name>unknown</author_name>\n\t<author_corrected>unknown</author_corrected>\n\t<author_uninverted>unknown</author_uninverted>\n</author_main>\n"
-                    f"<startdate>16170101</startdate>\n"
-                    f"<enddate>16171231</enddate>\n"
-                    f"<displaydate>1617</displaydate>\n"
+def get_back_tags(item_name, df_rec_search):
+    
+    this_line = df_rec_search.loc[item_name]
+    
+    pqid = this_line["<pqid>"]
+    title = this_line["<title>"]
+    author_main = this_line["<author_main>"]
+    author_corrected = "Anon."
+    author_uninverted = "Anon."
+    
+    imprint = this_line["<imprint>"]
+    if type(imprint).__name__ != "str": imprint = "unknown"
+    
+    startdate = this_line["<startdate>"]
+    if type(startdate).__name__ != "str": startdate = "unknown" 
+        
+    enddate = this_line["<enddate>"]
+    if type(enddate).__name__ != "str": enddate = "unknown" 
+    
+    displaydate = this_line["<displaydate>"]
+    if type(displaydate).__name__ != "str": displaydate = "unknown" 
+    
+    shelfmark = this_line["<shelfmark>"] 
+    pagination = this_line["<pagination>"] 
+    source_library = this_line["<source_library>"] 
+    source_collection = this_line["<source_collection>"]
+    language = this_line["<language>"]
+    
+    
+    back_tags = (   f"</itemimagefiles>\n\n<rec_search>\n<pqid>{pqid}</pqid>\n"
+                    f"<title>{title}</title>\n"
+                    f"<author_main>\n\t<author_name>{author_main}</author_name>\n\t<author_corrected>{author_corrected}</author_corrected>\n\t<author_uninverted>{author_uninverted}</author_uninverted>\n</author_main>\n"
+                    f"<imprint>{imprint}</imprint>\n"
+                    f"<startdate>{startdate}</startdate>\n"
+                    f"<enddate>{enddate}</enddate>\n"
+                    f"<displaydate>{displaydate}</displaydate>\n"
                     f"<publisher_printer>unknown</publisher_printer>\n"
-                    f"<pagination>unknown</pagination>\n"
-                    f"<source_library>unknown</source_library>\n"
+                    f"<shelfmark>{shelfmark}</shelfmark>\n"
+                    f"<pagination>{pagination}</pagination>\n"
+                    f"<source_library>{source_library}</source_library>\n"
+                    f"<source_collection>{source_collection}</source_collection>\n"
+                    f"<language>{language}</language>\n"
                     f"<illustrations>\n"
                     f"\t<illustration>Illuminated lettering</illustration>\n"
                     f"\t<illustration>Illustrated page borders</illustration>\n"
