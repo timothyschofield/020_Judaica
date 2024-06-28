@@ -170,6 +170,29 @@ def get_back_tags(item_name, df_rec_search, illustration_list):
     
         illustrations_tag = f"{illustrations_tag}</illustrations>\n"
     
+    link_tag = f""
+    links = this_line["<link>"]
+    if type(links) == str:
+        links_list = list(eval(links))
+        
+        link_tag = f"<linksec>\n"
+        # Annoying thing with single tuple/link
+        if type(links_list[0]) == str:
+            this_link_title = links_list[0]
+            this_link_id = links_list[1]
+            link_tag = f"{link_tag}\t<link>\n\t\t<linktitle>{this_link_title}</linktitle>\n"
+            link_tag = f"{link_tag}\t\t<linkid>{this_link_id}</linkid>\n\t</link>\n"
+        else:
+            # For multiple tuples/links
+            for this_link in links_list:
+                this_link_title = this_link[0]
+                this_link_id = this_link[1] 
+                link_tag = f"{link_tag}\t<link>\n\t\t<linktitle>{this_link_title}</linktitle>\n"
+                link_tag = f"{link_tag}\t\t<linkid>{this_link_id}</linkid>\n\t</link>\n"       
+        
+        link_tag = f"{link_tag}</linksec>\n"
+        
+    
     back_tags = (   f"</itemimagefiles>\n\n<rec_search>\n<pqid>{pqid}</pqid>\n"
                     f"<title>{title}</title>\n"
                     f"<author_main>\n\t<author_name>{author_main}</author_name>\n\t<author_corrected>{author_corrected}</author_corrected>\n\t<author_uninverted>{author_uninverted}</author_uninverted>\n</author_main>\n"
@@ -188,19 +211,7 @@ def get_back_tags(item_name, df_rec_search, illustration_list):
                     
                     f"\n</rec_search>\n\n"
                     
-                    f"<linksec>\n"
-                    
-                    f"<link>\n"
-                    f"\t<linktitle>Title here</linktitle>\n"
-                    f"\t<linkid>Link ID here</linkid>\n"
-                    f"</link>\n"
-                    
-                    f"<link>\n"
-                    f"\t<linktitle>Title here</linktitle>\n"
-                    f"\t<linkid>Link ID here</linkid>\n"
-                    f"</link>\n"
-                    
-                    f"</linksec>\n"
+                    f"{link_tag}"
                     
                     
                     f"\n</rec>"
