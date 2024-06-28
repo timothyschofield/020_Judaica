@@ -109,8 +109,6 @@ def get_page_line(this_row, index, book_index):
     # Wrap it in tags
     this_line = f"<itemimage>\n\t{this_line}\n</itemimage>\n"
     
-    # print(illustration_type_list)
-    
     return  (this_line, illustration_type_list)
 
 
@@ -128,6 +126,10 @@ def get_front_tags(item_name, df_rec_search):
 
 """
 def get_back_tags(item_name, df_rec_search, illustration_list):
+    
+    illustration_list = list(set(illustration_list))
+    
+    # print(illustration_list)
     
     this_line = df_rec_search.loc[item_name]
     
@@ -159,6 +161,14 @@ def get_back_tags(item_name, df_rec_search, illustration_list):
     source_collection = this_line["<source_collection>"]
     language = this_line["<language>"]
     
+    illustrations_tag = f""
+    if len(illustration_list) != 0:
+        
+        illustrations_tag = f"<illustrations>\n"
+        for illustration in illustration_list:
+            illustrations_tag = f"{illustrations_tag}\t<illustration>{illustration}</illustration>\n"
+    
+        illustrations_tag = f"{illustrations_tag}</illustrations>\n"
     
     back_tags = (   f"</itemimagefiles>\n\n<rec_search>\n<pqid>{pqid}</pqid>\n"
                     f"<title>{title}</title>\n"
@@ -173,10 +183,9 @@ def get_back_tags(item_name, df_rec_search, illustration_list):
                     f"<source_library>{source_library}</source_library>\n"
                     f"<source_collection>{source_collection}</source_collection>\n"
                     f"<language>{language}</language>\n"
-                    f"<illustrations>\n"
-                    f"\t<illustration>Illuminated lettering</illustration>\n"
-                    f"\t<illustration>Illustrated page borders</illustration>\n"
-                    f"</illustrations>\n"
+                    
+                    f"{illustrations_tag}"
+                    
                     f"\n</rec_search>\n\n"
                     
                     f"<linksec>\n"
