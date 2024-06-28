@@ -51,6 +51,7 @@ import requests
 
 # Read spreadsheet from sheet downloaded from Google drive
 metadata_input = Path(f"metadata_input/METADATA - Proquest UCL - Judaica Batch 1 (C260_0003) - BENCHMARK.csv")
+metadata_input = Path(f"metadata_input/Illustration METADATA - Proquest UCL - Judaica Batch 1 (C260_0003) - BENCHMARK.csv")
 
 if os.path.exists(metadata_input) != True:
     print(f"ERROR: {metadata_input} file does not exits")

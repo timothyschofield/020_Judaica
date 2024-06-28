@@ -47,8 +47,7 @@ class Book:
             else:
                 self.current_item = Item(index, row, self.current_item_name)
                 self.items[self.current_item_name] = self.current_item
-                self.current_item.update(index, row)
-                # print(f"Number of items: {len(self.items)}")  
+                self.current_item.update(index, row) 
         else:
             if self.is_nisc:  
                 self.nisc_data.update(index, row)
