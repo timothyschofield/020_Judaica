@@ -127,20 +127,26 @@ def get_back_tags(item_name, df_rec_search):
     pqid = this_line["<pqid>"]
     title = this_line["<title>"]
     author_main = this_line["<author_main>"]
-    author_corrected = "Anon."
-    author_uninverted = "Anon."
+    author_corrected = author_main
+    author_uninverted = author_main
     
     imprint = this_line["<imprint>"]
     if type(imprint).__name__ != "str": imprint = "unknown"
     
+    
+    
     startdate = this_line["<startdate>"]
-    if type(startdate).__name__ != "str": startdate = "unknown" 
-        
+    if math.isnan(startdate): startdate = "unknown" 
+    else: startdate = int(startdate)
+    
     enddate = this_line["<enddate>"]
-    if type(enddate).__name__ != "str": enddate = "unknown" 
+    if math.isnan(enddate): enddate = "unknown" 
+    else: enddate = int(enddate)
     
     displaydate = this_line["<displaydate>"]
-    if type(displaydate).__name__ != "str": displaydate = "unknown" 
+    if math.isnan(displaydate): displaydate = "unknown" 
+    else: displaydate = int(displaydate)
+    
     
     shelfmark = this_line["<shelfmark>"] 
     pagination = this_line["<pagination>"] 
