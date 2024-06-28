@@ -160,7 +160,7 @@ for index, row in df.iterrows():
                     
                     items_on_lines = '\n'.join(item_data)
                     front_tags = get_front_tags(old_item_name, df_rec_search)  
-                    back_tags = get_back_tags(old_item_name, df_rec_search)  
+                    back_tags = get_back_tags(old_item_name, df_rec_search, illustration_list)  
 
                     items_on_lines = f"{front_tags}{items_on_lines}{back_tags}"
                     
@@ -171,13 +171,16 @@ for index, row in df.iterrows():
                 # So start the new item's data off by inserting the NISC data for that book
                 item_data = []
                 item_data.extend(nisc_data)
+                illustration_list = []
                 
                 nisc_offset = how_many_nisc_are_numbered(nisc_data)
                 
                  # you need to know how many are numbered in the NISC data
                 book_index = nisc_offset + 1
                 image_index = image_index + 1
-                item_data.append(get_page_line(row, image_index, book_index))
+                this_line, line_illustration_list = get_page_line(row, image_index, book_index)
+                item_data.append(this_line)
+                illustration_list.extend(line_illustration_list)
 
                 old_item_name = item_name
                 old_item_path = item_name_path
@@ -185,8 +188,9 @@ for index, row in df.iterrows():
                 # Not new item OR NISC data
                 book_index = book_index + 1
                 image_index = image_index + 1
-                item_data.append(get_page_line(row, image_index, book_index))
-    
+                this_line, line_illustration_list = get_page_line(row, image_index, book_index)
+                item_data.append(this_line)
+                illustration_list.extend(line_illustration_list)
 
 # print(f"Last Old item data ****{item_data}****\n") 
 file_to_write = f"{old_item_path}/{old_item_name}.xml"
@@ -195,7 +199,7 @@ print(f"{file_to_write=}")
 
 items_on_lines = '\n'.join(item_data)
 front_tags = get_front_tags(item_name, df_rec_search)
-back_tags = get_back_tags(item_name, df_rec_search)
+back_tags = get_back_tags(item_name, df_rec_search, illustration_list)
 
 items_on_lines = f"{front_tags}{items_on_lines}{back_tags}"
 

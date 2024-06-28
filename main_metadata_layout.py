@@ -44,6 +44,8 @@ def get_page_line(this_row, index, book_index):
     image_name = this_row["Image name"]
     file_name = Path(image_name).stem
     
+    illustration_type_list = []
+    
     itemimagefile_element = f"<itemimagefile1>{file_name}</itemimagefile1>"
     imagenumber_element = f"<imagenumber>{index}</imagenumber>"
     
@@ -80,6 +82,9 @@ def get_page_line(this_row, index, book_index):
         illustration_type = this_row[f"illustration_type_{i}"]  
         instances_of = this_row[f"instances_of_{i}"]
         
+        # Collect the illustration types for the metadata
+        if type(illustration_type) == str: illustration_type_list.append(illustration_type)
+        
         if type(illustration_type).__name__ != "str": 
             illustration_type = ""
         else:
@@ -104,7 +109,9 @@ def get_page_line(this_row, index, book_index):
     # Wrap it in tags
     this_line = f"<itemimage>\n\t{this_line}\n</itemimage>\n"
     
-    return  this_line
+    # print(illustration_type_list)
+    
+    return  (this_line, illustration_type_list)
 
 
 ####################################################################
@@ -120,7 +127,7 @@ def get_front_tags(item_name, df_rec_search):
     https://docs.google.com/spreadsheets/d/1hmBUjLONWi2XRhz45K3lJuNRNXr3IPJR/edit?gid=2000716270#gid=2000716270
 
 """
-def get_back_tags(item_name, df_rec_search):
+def get_back_tags(item_name, df_rec_search, illustration_list):
     
     this_line = df_rec_search.loc[item_name]
     
@@ -132,8 +139,6 @@ def get_back_tags(item_name, df_rec_search):
     
     imprint = this_line["<imprint>"]
     if type(imprint).__name__ != "str": imprint = "unknown"
-    
-    
     
     startdate = this_line["<startdate>"]
     if math.isnan(startdate): startdate = "unknown" 
