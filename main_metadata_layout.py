@@ -200,7 +200,6 @@ def get_back_tags(item_name, df_rec_search, illustration_list):
                     f"<startdate>{startdate}</startdate>\n"
                     f"<enddate>{enddate}</enddate>\n"
                     f"<displaydate>{displaydate}</displaydate>\n"
-                    f"<publisher_printer>unknown</publisher_printer>\n"
                     f"<shelfmark>{shelfmark}</shelfmark>\n"
                     f"<pagination>{pagination}</pagination>\n"
                     f"<source_library>{source_library}</source_library>\n"

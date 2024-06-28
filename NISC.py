@@ -22,8 +22,10 @@ class NISC:
         self.index = index
         self.row = row
         self.item_name = item_name
-        
         self.image_name = Path(self.row["Image name"]).stem
+        self.first_part = []  
+        self.second_part = []
+        
         print(f"\tNew NISC data: {self.item_name}")
         print(f"\t\t{self.image_name}")
         
@@ -32,3 +34,16 @@ class NISC:
         self.row = row
         self.image_name = Path(self.row["Image name"]).stem
         print(f"\t\t{self.image_name}")
+        
+        # The only distinction I can think of between first_part and second_part is 
+        # that first_part images contain four zeros in the final section like "0000S" as opposed to three zeros like "0003L"
+        end_bit = self.image_name.split("-")[-1]
+        if "0000" in end_bit:
+            # first_part
+            pass
+        else:
+            # second_part
+            pass
+        
+        
+    

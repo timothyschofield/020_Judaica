@@ -108,7 +108,7 @@ class App:
     and pass it the input and output paths for the data
 """
 input_folder = Path(f"metadata_input")
-input_file = Path(f"METADATA - Proquest UCL - Judaica Batch 1 (C260_0003) - BENCHMARK.csv")
+input_file = Path(f"Illustration METADATA - Proquest UCL - Judaica Batch 1 (C260_0003) - BENCHMARK.csv")
 input_path = Path(f"{input_folder}/{input_file}")
 
 output_folder = Path(f"metadata_output")
