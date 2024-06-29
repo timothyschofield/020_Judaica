@@ -173,11 +173,14 @@ for index, row in df.iterrows():
                 item_data.extend(nisc_data)
                 illustration_list = []
                 
-                nisc_offset = how_many_nisc_are_numbered(nisc_data)
+                
+                numbered_niscs_offset = how_many_nisc_are_numbered(nisc_data)
+                total_number_of_niscs = len(nisc_data) # <<< this is the second item fix
                 
                  # you need to know how many are numbered in the NISC data
-                book_index = nisc_offset + 1
-                image_index = image_index + 1
+                book_index = numbered_niscs_offset + 1
+                image_index = total_number_of_niscs + 1 # <<< this is the second item fix
+                
                 this_line, line_illustration_list = get_page_line(row, image_index, book_index)
                 item_data.append(this_line)
                 illustration_list.extend(line_illustration_list)

@@ -40,14 +40,14 @@ def get_nsic_line(this_row, index):
 
 ####################################################################
 # Regular body of the book
-def get_page_line(this_row, index, book_index):
+def get_page_line(this_row, image_index, book_index):
     image_name = this_row["Image name"]
     file_name = Path(image_name).stem
     
     illustration_type_list = []
     
     itemimagefile_element = f"<itemimagefile1>{file_name}</itemimagefile1>"
-    imagenumber_element = f"<imagenumber>{index}</imagenumber>"
+    imagenumber_element = f"<imagenumber>{image_index}</imagenumber>"
     
     order = book_index # because of the weird NISC numbering
    
