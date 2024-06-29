@@ -3,7 +3,7 @@
     Author: Tim Schofield
     Date: 27 June 2024   
     
-    This uses a double scan - first we collect the data from the input speadsheet and in a hierachical data structure of Books, Items, NISCs and Pages.
+    This uses a double scan - first we collect the data from the input speadsheet and in a hierachical data structure of Books, Items and NISCs.
     Once we have the structured data we can go through it and write out the metadata xml in a sensible fashion.
 
     This is specificaly required to address the problem of linked data, where items in a book/volume need to know about one another's existance.
@@ -13,7 +13,7 @@
 
     Required file hierachy
 
-    uni-ucl-jud-0015052                             <<<<< this the book or volume level
+    uni-ucl-jud-0015052                             <<<<< this the Volume or Book level
         
         uni-ucl-jud-0015052-000                     <<<<< this item folder contains no XML but there is an ocr folder
             ocr
@@ -29,7 +29,7 @@
                 uni-ucl-jud-0015052-001-0001R.xml
                 ...
                 
-         uni-ucl-jud-0015052-002                    <<<<<<< sceond item in Volume
+         uni-ucl-jud-0015052-002                    <<<<<<< sceond item in Book
             uni-ucl-jud-0015052-002.xml             <<<<< this is the metadata file for item 002
             
             etc.
